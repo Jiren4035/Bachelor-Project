@@ -1,0 +1,364 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+        <style>
+
+            /* Global styles */
+        body, .header, .login-button, .register-button, .container, .footer, .footer a, .footer a:hover {
+            font-family: 'Roboto', sans-serif !important;
+        }
+
+
+        h1 {
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+            /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #292669;
+            color: white;
+            padding: 10px;
+            font-family: 'Sans serif'; 
+        }
+
+        .logo-container img {
+            cursor: pointer;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .login-button, .register-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-left: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+            font-family: 'Sans serif'; 
+        }
+
+        .login-button:hover, .register-button:hover {
+            background-color: #45a049;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+            /* Body */
+        .container {
+            padding-bottom: 10px;
+            font-family: 'Sans serif'; 
+        }
+
+            /* Footer */
+        .footer {
+            background-color: #292669; 
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Sans serif'; 
+        }
+
+        .footer, .footer a, .footer a:hover {
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        .social-icon {
+            color: #FFF;
+            margin: 0 10px;
+        }
+
+        .social-icon i {
+            transition: color 0.3s ease;
+        }
+
+        .social-icon .twitter-icon {
+            font-size: irem;
+        }
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-wrap {
+    display: flex;
+    align-items: stretch;  /* Ensure the text and image stretch to fill the container's height */
+}
+
+.justified-text {
+    text-align: justify;
+    flex: 1;  /* Allows the text to grow and use up the available space */
+}
+
+.system-monitoring-image {
+    width: 200px;  /* Reduced width to make the image narrower */
+    height: auto;  /* Auto height to maintain aspect ratio */
+    object-fit: cover;  /* Ensures the image covers the defined width and height without distorting */
+    margin-left: 20px;  /* Adds space between the text and the image */
+}
+
+
+
+        </style>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <a href="{{url_for('home')}}" class="logo-container">
+                    <img src="{{logo_url}}" alt="ScanmyLog Logo"> 
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="{{url_for('login')}}" class="login-button">Login</a> 
+                <a href="{{url_for('register')}}" class="register-button">Register</a>
+            </div>
+        </div>
+        
+<!-- ScanmyLog Features Content -->
+
+<div class="container">
+    <div style="background-color: white; padding: 20px; margin-bottom: 100px;">
+        <h1>ScanmyLog Features</h1>
+
+        <!-- System Monitoring -->
+<div class="feature-item">
+    <h3>System Monitoring</h3>
+    <div class="content-wrap">
+        <p class="justified-text">ScanmyLog's System Monitoring is the cornerstone of our cybersecurity suite,
+        providing continuous surveillance to ensure the peak performance of your critical system operations.
+        This robust feature allows for real-time observation and analysis, ensuring that all components of your
+        system are functioning as expected and that any anomalies are detected promptly. With our advanced
+        monitoring tools, you can rest assured that your infrastructure remains secure and efficient, minimizing
+        downtime and maintaining business continuity.</p>
+        <img src="https://cdn-ilaodld.nitrocdn.com/bUeUVIQubprZTBfZgmdAaTfvgAbolIcP/assets/images/optimized/rev-99566eb/www.hbs.net/wp-content/uploads/2024/01/SIEM-puzzle-graphic.jpeg" alt="System Monitoring Image" class="system-monitoring-image">
+    </div>
+</div>
+        <div class="feature-item">
+    <h3>Analytics Dashboard</h3>
+    <div class="content-wrap">
+        <p class="justified-text">ScanmyLog's Analytics Dashboard stands out as a central feature of our platform,
+            designed to cater expertly to the dynamic needs of modern enterprises. This highly customizable dashboard
+            allows users to tailor the layout and the metrics displayed according to their specific requirements,
+            ensuring that relevant data is always front and center. With advanced filtering options, users can effortlessly
+            drill down into the data, isolating and examining specific segments or trends without being overwhelmed by the
+            entirety of the data set. Additionally, the dashboard supports comprehensive export capabilities, enabling users
+            to seamlessly download and share reports in various formats, facilitating easy dissemination and offline analysis.
+            Most importantly, the dashboard showcases collected data in an expert manner by employing sophisticated
+            visualization tools that transform complex datasets into clear, insightful visual representations. These
+            visualizations aid in making informed decisions quickly, providing a strategic edge in operational and
+            strategic planning.</p>
+        <img src="https://cdn-ilaodld.nitrocdn.com/bUeUVIQubprZTBfZgmdAaTfvgAbolIcP/assets/images/optimized/rev-99566eb/www.hbs.net/wp-content/uploads/2024/01/SIEM-puzzle-graphic.jpeg" alt="System Monitoring Image" class="system-monitoring-image">
+    </div>
+</div>
+
+        <div class="feature-item">
+    <h3>Event Help</h3>
+    <div class="content-wrap">
+        <p class="justified-text">ScanmyLog's Event Help Page serves as a comprehensive guide designed to enhance users'
+            understanding of various system events and their potential implications in cybersecurity attacks. This detailed
+            resource breaks down each event type logged by our system, explaining its significance and how it might be
+            exploited by attackers to compromise system integrity. By elucidating the connection between specific events
+            and common attack vectors, users gain a deeper insight into the security landscape and learn to recognize
+            early signs of malicious activity. In addition to detailed event descriptions, the page integrates a
+            responsive chatbot, designed to provide real-time assistance. Users can interact with the chatbot by asking
+            specific questions about events, seeking advice on interpreting unusual patterns, or querying potential security
+            threats associated with observed activities. The chatbot, equipped with advanced AI, can also guide users through
+            the process of setting up custom alerts for certain types of events, ensuring they are promptly informed of
+            potentially hazardous activities.</p>
+        <img src="https://cdn-ilaodld.nitrocdn.com/bUeUVIQubprZTBfZgmdAaTfvgAbolIcP/assets/images/optimized/rev-99566eb/www.hbs.net/wp-content/uploads/2024/01/SIEM-puzzle-graphic.jpeg" alt="System Monitoring Image" class="system-monitoring-image">
+    </div>
+</div>
+
+        <div class="feature-item">
+    <h3>Filter</h3>
+    <div class="content-wrap">
+        <p class="justified-text">ScanmyLog's Filter Page is engineered to streamline the management and analysis of extensive
+            data logs collected by our system. This powerful tool enables users to filter and view all types of data, from
+            routine operational logs to critical security events, facilitating a focused approach to data examination. With
+            intuitive filtering options, users can easily specify criteria such as date ranges, event types, severity levels,
+            and more, allowing for a tailored view that highlights the most relevant information. Once filtered, the data
+            is displayed in an organized and accessible format, presenting users with a clear overview of the events that
+            matter most. The page supports dynamic interactions with the data, including sorting and additional filtering
+            within the displayed results, ensuring that users can drill down to the finest details as needed.
+            In addition to viewing capabilities, the Filter Page offers robust export features. Users can export the
+            filtered data into various formats such as CSV, PDF, or JSON, accommodating a range of uses from further
+            offline analysis to compliance reporting. Moreover, the page includes options for users to send these reports
+            directly to colleagues or stakeholders via email, promoting efficient communication and collaboration.</p>
+        <img src="https://cdn-ilaodld.nitrocdn.com/bUeUVIQubprZTBfZgmdAaTfvgAbolIcP/assets/images/optimized/rev-99566eb/www.hbs.net/wp-content/uploads/2024/01/SIEM-puzzle-graphic.jpeg" alt="System Monitoring Image" class="system-monitoring-image">
+    </div>
+</div>
+
+        <div class="feature-item">
+    <h3>Alert</h3>
+    <div class="content-wrap">
+        <p class="justified-text">ScanmyLog's Alert Page is meticulously designed to empower users with the ability to
+            proactively manage and respond to potential security threats through customized alerts. This intuitive platform
+            allows users to create personalized alert conditions based on specific criteria such as event types, severity,
+            or detected anomalies. Each alert can be finely tuned to match the user’s operational requirements and sensitivity
+            preferences, ensuring that notifications are both relevant and timely. Key features of the Alert Page include
+            the flexibility to set the frequency of alerts, allowing users to choose how often they receive updates - whether
+            it’s instant notifications for critical issues or periodic summaries for ongoing monitoring. The sensitivity
+            settings further refine the alert system, enabling users to adjust the thresholds that trigger these notifications,
+            which helps in reducing false positives and focusing on genuine threats. Additionally, users can specify the
+            destination email addresses for where alerts should be sent, facilitating direct communication to personal
+            mailboxes or departmental groups. This feature ensures that the right personnel are alerted immediately, enhancing
+            the ability to take swift and informed action. The Alert Page also integrates seamlessly with existing email
+            systems, providing a reliable and efficient way to keep stakeholders informed. With these customizable options,
+            the page is not just a tool for monitoring—it's a crucial part of a comprehensive security strategy, offering
+            peace of mind and enhanced protective measures for any organization.</p>
+        <img src="https://cdn-ilaodld.nitrocdn.com/bUeUVIQubprZTBfZgmdAaTfvgAbolIcP/assets/images/optimized/rev-99566eb/www.hbs.net/wp-content/uploads/2024/01/SIEM-puzzle-graphic.jpeg" alt="System Monitoring Image" class="system-monitoring-image">
+    </div>
+</div>
+
+        <div class="feature-item">
+    <h3>Case</h3>
+    <div class="content-wrap">
+        <p class="justified-text">ScanmyLog's Our Case Management Page is a pivotal tool designed to enhance organizational
+            oversight and facilitate detailed audits by allowing users to curate and group suspicious events into cases.
+            This feature-rich platform empowers users to handpick specific incidents that warrant further examination and
+            compile them into structured cases. By organizing related events in this manner, it simplifies the task of tracking
+            potential security threats and coordinating investigative efforts. The interface of the Case Management Page
+            is intuitively designed to ensure ease of use, allowing users to select events based on various criteria such
+            as time frames, severity, or type of anomaly. Once selected, these events can be added to new or existing
+            cases with just a few clicks. Each case can be customized with unique identifiers and descriptions, making it
+            straightforward to retrieve and review at any time, which is crucial for ongoing audits or when preparing
+            compliance reports. Furthermore, this page includes robust search and filter tools to navigate through cases
+            and events efficiently. It supports a workflow where users can update the status of each case, add notes, and
+            even attach relevant documents or evidence, thereby maintaining a comprehensive record that is essential for
+            thorough analysis and reporting.</p>
+        <img src="https://cdn-ilaodld.nitrocdn.com/bUeUVIQubprZTBfZgmdAaTfvgAbolIcP/assets/images/optimized/rev-99566eb/www.hbs.net/wp-content/uploads/2024/01/SIEM-puzzle-graphic.jpeg" alt="System Monitoring Image" class="system-monitoring-image">
+    </div>
+</div>
+
+        <div class="feature-item">
+    <h3>UEBA</h3>
+    <div class="content-wrap">
+        <p class="justified-text">ScanmyLog's state-of-the-art User and Entity Behavior Analytics (UEBA) system leverages
+            the cutting-edge Isolation Forest AI algorithm, renowned for its exceptional ability to detect anomalies in
+            data, especially in identifying rare items, events, or observations which raise suspicions by differing
+            significantly from the majority. This AI-driven approach enables our system to efficiently parse and analyze
+            vast volumes of log data, pinpointing potential security threats by highlighting activities that deviate from
+            established patterns of normal behavior. The UEBA system is equipped with sophisticated filtering tools that
+            allow security analysts to refine and focus their review on the most relevant data points. Users can apply
+            various filters such as date ranges, event categories, or risk levels to manage and navigate through the data
+            more effectively. This capability ensures that analysts can quickly isolate and address the most pressing concerns
+            without being overwhelmed by the volume of collected data. Additionally, our UEBA system features a dynamic
+            dashboard that provides comprehensive data visualization tools. These tools transform complex datasets into
+            intuitive and easy-to-understand visual formats, such as graphs, heat maps, and timelines. The dashboard not
+            only enhances the visual appeal but significantly improves the interpretability of the data, allowing users
+            to grasp complicated patterns and trends at a glance. This visual representation is crucial for prompt and
+            informed decision-making in fast-paced security environments. Through the integration of the Isolation Forest
+            algorithm with advanced filtering and visualization technologies, our UEBA system delivers a powerful solution
+            for monitoring user and entity behaviors. It not only detects sophisticated insider threats and targeted attacks
+            but also enhances the overall security posture by providing a clearer, more actionable overview of the network's
+            activity landscape.</p>
+        <img src="https://cdn-ilaodld.nitrocdn.com/bUeUVIQubprZTBfZgmdAaTfvgAbolIcP/assets/images/optimized/rev-99566eb/www.hbs.net/wp-content/uploads/2024/01/SIEM-puzzle-graphic.jpeg" alt="System Monitoring Image" class="system-monitoring-image">
+    </div>
+</div>
+
+ <div class="feature-item">
+    <h3>UEBA</h3>
+    <div class="content-wrap">
+        <p class="justified-text">ScanmyLog's Notification Page serves as a central hub for all communications generated
+            by the User and Entity Behavior Analytics (UEBA) system, as well as alerts and updates from the alert and case
+            management features. This comprehensive page is meticulously designed to ensure users have instant access to
+            all relevant security notifications, enabling them to stay informed and react swiftly to any potential threats
+            or required actions. The layout of the Notification Page is user-friendly and intuitive, displaying notifications
+            in a clear, chronological list. Each notification is accompanied by a timestamp and a brief description, providing
+            users with a quick overview of the event without needing to delve into detailed logs immediately. This setup
+            allows for rapid assessment of the urgency and relevance of each alert or case update. Users can customize their
+            notification settings to filter out routine messages and only receive alerts that meet specific criteria, such
+            as severity levels or categories pertinent to their responsibilities. This customization helps in managing the
+            flow of information and ensures that users are not overwhelmed by less critical notifications. Additionally,
+            the page includes advanced sorting and filtering tools that allow users to organize their notifications based
+            on various parameters such as date, status, or type. This functionality is particularly useful in busy operational
+            environments where prioritization and quick access to the most critical alerts can significantly impact response
+            times and outcomes.
+        <img src="https://cdn-ilaodld.nitrocdn.com/bUeUVIQubprZTBfZgmdAaTfvgAbolIcP/assets/images/optimized/rev-99566eb/www.hbs.net/wp-content/uploads/2024/01/SIEM-puzzle-graphic.jpeg" alt="System Monitoring Image" class="system-monitoring-image">
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="footer" style="background-color: #292669; color: white; padding: 20px; position: fixed; bottom: 0; 
+width: 100%; display: flex; align-items: center; justify-content: center;">
+    <div class="footer-section" style="margin-right: 50px;">
+<a href="{{url_for('terms_conditions')}}" class="terms_conditions-link">Terms & Conditions</a> |
+<a href="{{url_for('help')}}" class="help-link">Help</a>
+
+    </div>
+        <div class="footer-section" style="flex-grow: 2; display: flex; justify-content: center; gap: 20px; 
+        margin: 0 10px;">
+        <a href="{{facebook_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f fa-2x"></i>
+        </a>
+        <a href="{{twitter_url}}" target="_blank" class="social-icon">
+            <i class="fa-brands fa-x-twitter" style="font-size: 2rem;"></i>
+        </a>
+        <a href="{{youtube_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-youtube fa-2x"></i>
+        </a>
+        <a href="{{linkedin_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in fa-2x"></i>
+        </a>
+        <a href="{{instagram_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-instagram fa-2x"></i>
+        </a>
+    </div>
+
+<div class="footer-section" style="margin-left: 10px;">
+<a href="{{url_for('privacy_policy')}}" class="privacy_policy-link">Privacy Policy</a> |
+<a href="{{url_for('feedback')}}" class="feedback-link">Feedback</a>
+        </div>
+    </div>
+
+    </script>
+    </body>
+    </html>
+        """

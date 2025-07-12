@@ -1,0 +1,185 @@
+ <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Create New Case</title>
+        <style>
+
+         /* Global styles */
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif, Arial, Helvetica, sans-serif;
+    }
+
+        /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #292669;
+        color: white;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .header-left, .header-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .settings-button, .preferences-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        margin-left: 5px;
+        text-decoration: none;
+        font-size: 20px;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .settings-button:hover, .preferences-button:hover {
+        background-color: #45a049;
+    }
+
+            .logout-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: darkred;
+        }
+
+        /* Navigation Bar */
+    .navbar {
+        background-color: #292669;
+        overflow: hidden;
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+            body {
+                text-align: center;
+            }
+            #collection-table table {
+                margin: 0 auto;
+                border-collapse: collapse;
+                width: 80%; /* Adjust width as needed */
+            }
+            #collection-table th, #collection-table td {
+                border: 1px solid black;
+                padding: 8px;
+            }
+            #collections-list {
+                margin-top: 20px;
+            }
+            </style>
+        </head>
+        <body>
+                <div class="header">
+        <div class="header-left">
+            <a href="{{ url_for('home') }}">
+                <img src="{{ logo_url }}" alt="Logo">
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="{{ url_for('settings') }}" class="preferences-button">Settings & Preferences</a>
+                        <form action="{{ url_for('logout') }}" method="post" style="margin-left: 10px;">
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('filter') }}">Filter</a>
+        <a href="{{ url_for('alert') }}">Alert</a>
+        <a href="{{ url_for('case') }}">Case</a>
+        <a href="{{ url_for('ueba') }}">UEBA</a>
+        <a href="{{ url_for('event_help') }}">Event Help</a>
+    </div>
+            <h1>Create a New Case</h1>
+            <form method="post">
+                <label for="eventName">Case Name:</label>
+                <input type="text" id="eventName" name="eventName" required>
+                <button type="submit">Create Case</button>
+            </form>
+            <h2>View Collections</h2>
+            <div id="collections-list">
+                {% for name in collection_names %}
+                    <button onclick="loadCollection('{{ name }}')">{{ name }}</button>
+                {% endfor %}
+            </div>
+            <div id="collection-table">
+                <!-- The table will be loaded here -->
+            </div>
+        </body>
+        <script>
+            function loadCollection(collectionName) {
+                fetch('/view_collection', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ 'collectionName': collectionName })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const collectionDiv = document.getElementById('collection-table');
+                    collectionDiv.innerHTML = ''; // Clear previous table
+                    // Create and insert new table
+                    const table = document.createElement('table');
+                    // Create table headers
+                    const thead = document.createElement('thead');
+                    const headerRow = document.createElement('tr');
+                    data.headers.forEach(header => {
+                        const th = document.createElement('th');
+                        th.textContent = header;
+                        headerRow.appendChild(th);
+                    });
+                    thead.appendChild(headerRow);
+                    table.appendChild(thead);
+                    // Create table body
+                    const tbody = document.createElement('tbody');
+                    data.documents.forEach(doc => {
+                        const row = document.createElement('tr');
+                        data.headers.forEach(header => {
+                            const td = document.createElement('td');
+                            td.textContent = doc[header];
+                            row.appendChild(td);
+                        });
+                        tbody.appendChild(row);
+                    });
+                    table.appendChild(tbody);
+                    collectionDiv.appendChild(table);
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        </script>
+        </html>

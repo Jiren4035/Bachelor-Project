@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        /* Global */
+        body, .header, .login-button, .register-button, .container, .footer, .footer a, .footer a:hover {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            text-align: justify;
+            background-image: url('{{ background_url }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-bottom: 100px;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #292669;
+            color: white;
+            padding: 20px;
+        }
+
+        .header .logo-container img {
+            height: auto;
+            cursor: pointer;
+        }
+
+        .header .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .header h2 {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            padding-bottom: 10px;
+        }
+
+        .header .login-button, .header .register-button {
+            border-radius: 10px;
+            margin-right: 10px;
+            padding: 10px 20px;
+        }
+
+        .header .header-right a:last-child {
+            margin-right: 0;
+        }
+
+        .header .login-button:hover, .header .register-button:hover {
+            background-color: #45a049;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding-bottom: 100px;
+        }
+
+        .login-button, .register-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 20px;
+            border: none;
+            border-radius: 20px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        .header-right a:last-child {
+            margin-right: 0;
+        }
+
+        .login-button:hover, .register-button:hover {
+            background-color: #45a049;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-right a {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Body */
+        .reset-container, .otp-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+            margin-top: 20px; /* Adjusted margin */
+            margin-bottom: 20px; /* Adjusted margin */
+        }
+
+        .reset-container input[type="text"],
+        .reset-container input[type="email"],
+        .reset-container input[type="password"],
+        .reset-container button,
+        .otp-container input[type="text"],
+        .otp-container button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .reset-container button, .otp-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .reset-container button:hover, .otp-container button:hover {
+            background-color: #45a049; /* Darker green background on hover */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #292669;
+            color: white;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .footer, .footer a, .footer a:hover {
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        .social-icon {
+            color: #FFF;
+            margin: 0 10px;
+        }
+
+        .social-icon i {
+            transition: color 0.3s ease;
+        }
+
+        .social-icon .twitter-icon {
+            font-size: irem;
+        }
+
+        .container {
+            padding-bottom: 200px;
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <a href="{{url_for('home')}}" class="logo-container">
+                    <img src="{{logo_url}}" alt="ScanmyLog Logo">
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="{{url_for('login')}}" class="login-button">Login</a>
+                <a href="{{url_for('register')}}" class="register-button">Register</a>
+            </div>
+        </div>
+
+        <!-- Reset Password Form -->
+        <div class="main-content" style="display: flex; justify-content: space-around; padding: 20px;">
+            <div class="reset-container">
+                <form action="{{ url_for('forget_password') }}" method="post">
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Reset Password</button>
+                </form>
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                        <ul>
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-section" style="margin-right: 50px;">
+            <a href="{{url_for('terms_conditions')}}" class="terms_conditions-link">Terms & Conditions</a> |
+            <a href="{{url_for('help')}}" class="help-link">Help</a>
+        </div>
+        <div class="footer-section" style="flex-grow: 2; display: flex; justify-content: center; gap: 20px; margin: 0 10px;">
+            <a href="{{facebook_url}}" target="_blank" class="social-icon">
+                <i class="fab fa-facebook-f fa-2x"></i>
+            </a>
+            <a href="{{twitter_url}}" target="_blank" class="social-icon">
+                <i class="fa-brands fa-x-twitter" style="font-size: 2rem;"></i>
+            </a>
+            <a href="{{youtube_url}}" target="_blank" class="social-icon">
+                <i class="fab fa-youtube fa-2x"></i>
+            </a>
+            <a href="{{linkedin_url}}" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin-in fa-2x"></i>
+            </a>
+            <a href="{{instagram_url}}" target="_blank" class="social-icon">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+        </div>
+        <div class="footer-section" style="margin-left: 10px;">
+            <a href="{{url_for('privacy_policy')}}" class="privacy_policy-link">Privacy Policy</a> |
+            <a href="{{url_for('feedback')}}" class="feedback-link">Feedback</a>
+        </div>
+    </div>
+</body>
+</html>

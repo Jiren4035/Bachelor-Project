@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+
+            /* Global */
+            body, .header, .login-button, .register-button, .container, .footer, .footer a, .footer a:hover {
+                font-family: 'Roboto', sans-serif !important;
+            }
+
+            /* Header */
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #292669;
+                color: white;
+                padding: 10px;
+            }
+
+            .logo-container img {
+                cursor: pointer;
+            }
+
+            .justified-text {
+                text-align: justify;
+            }
+
+            .login-button, .register-button {
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px 20px;
+                margin-left: 10px;
+                text-decoration: none;
+                font-size: 20px;
+                border-radius: 10px;
+                transition: background-color 0.3s;
+            }
+
+            .login-button:hover, .register-button:hover {
+                background-color: #45a049;
+            }
+
+            .header-left {
+                display: flex;
+                align-items: center;
+            }
+
+            .header-right {
+                display: flex;
+                align-items: center;
+            }
+
+            /* Body */
+            body, html {
+            font-family: 'Sans Serif', Arial, sans-serif; /* Updated font family */
+            height: 100%;
+            margin: 0;
+            background-image: url('{{ background_url }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-bottom: 20px;
+            }
+
+            .text-section {
+                flex: 1;
+                max-width: 100%;
+                order: 2;
+                padding: 10px;
+                background-color: rgba(255, 255, 255, 0.8);
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            }
+
+ .feature-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            align-items: stretch; /* Ensures alignment at the same height */
+        }
+
+.content-container {
+    display: flex;
+    align-items: start; /* Aligns items at the start of the flex container */
+    justify-content: space-around; /* Distributes space around items */
+    padding: 20px;
+}
+
+.text-section {
+    flex: 1; /* Takes up the remaining space */
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+.feature-box {
+    flex: 0 0 25%; /* Does not grow, does not shrink, starts at 25% of the container's width */
+    background-color: #292669;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+}
+
+
+        .video-container {
+            flex: 2; /* Larger flex value for more space */
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .embed-responsive {
+            position: relative;
+            width: 100%;
+            padding-top: 10%; /* 16:9 aspect ratio */
+        }
+
+        .embed-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0; /* No border */
+        }
+
+
+            .function-icon {
+            background-size: cover;
+                filter: brightness(0) invert(1);
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                margin: 0 auto 10px;
+                position: relative;
+            }
+
+            .full-width-image {
+                width: 100%;
+                height: auto;
+            }
+
+            .rotate-icon {
+                transition: transform 0.5s ease-in-out;
+            }
+
+            .rotate-icon:hover {
+                transform: rotate(360deg);
+            }
+
+            /* Footer */
+            .footer {
+                background-color: #292669;
+                color: white;
+                padding: 50px;
+                position: relative;
+                bottom: 0;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .footer, .footer a, .footer a:hover {
+                color: white !important;
+                text-decoration: none;
+            }
+
+            .footer a:hover {
+                opacity: 0.8;
+            }
+
+            .social-icon {
+                color: #FFF;
+                margin: 0 10px;
+            }
+
+            .social-icon i {
+                transition: color 0.3s ease;
+            }
+
+            .social-icon .twitter-icon {
+                font-size: irem;
+            }
+
+            .text-section h2 {
+                font-size: 24px; /* Adjust the font size to your preference */
+                margin-bottom: 10 em; /* Optional: Adjust bottom margin for spacing */
+            }
+
+            .carousel {
+  width: 100%; /* Adjust the width as necessary, up to 100% of the container */
+  height: 500px; /* Set a specific height or use a percentage of the viewport height (vh) */
+}
+
+.carousel-item img {
+  width: 100%; /* Ensure the image fills the carousel */
+  height: 500px; /* Maintain a consistent height for all images */
+  object-fit: cover; /* This makes sure the images cover the area without being distorted */
+}
+
+/* Carousel Indicators - Modify to appear as dashes */
+.carousel-indicators li {
+    width: 30px; /* Make the indicator wider to appear as a dash */
+    height: 10px; /* Make the indicator shorter for dash appearance */
+    border-radius: 5px; /* Slightly rounded corners for aesthetics */
+    background-color: blue; /* Default color of the dash */
+    margin: 0 2px; /* Space between dashes */
+}
+
+.carousel-indicators li:hover {
+    background-color: green; /* Color changes to green when hovered */
+}
+
+.carousel-indicators .active {
+    background-color: #555; /* Active indicator color, adjust if necessary */
+}
+
+
+            /* Navigation Bar Customizations */
+.nav-bar {
+    background-color: transparent; /* Remove grey shade */
+    box-shadow: none; /* Remove any shadows if they exist */
+}
+
+.nav-circles {
+    background-color: blue; /* Default state circle color */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-circles:hover {
+    background-color: green; /* Color on hover */
+}
+
+              .resizable {
+            resize: both;
+            overflow: auto;
+            width: 50%; /* Starting width */
+            max-width: 100%;
+            margin: auto;
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+        .resizable iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .peak-bar {
+            width: 100%;
+            height: 5px;
+            background-color: #4CAF50;
+            position: absolute;
+            bottom: 0;
+            animation: fillBar 10s linear forwards;
+        }
+        @keyframes fillBar {
+            from { width: 0%; }
+            to { width: 100%; }
+        }
+
+/* Add bottom margin to the function-container or video-container */
+.function-container, .video-container {
+    margin-bottom: 50px; /* Increased space above the footer */
+}
+
+/* Video Container - Adding more bottom margin */
+.video-container {
+    width: 80%; /* Adjust width to fit under the text and box */
+    margin: auto; /* Center the video container horizontally */
+    padding: 20px 0; /* Padding above and below the video */
+    background-color: #fff; /* Background color for the video container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adding a subtle shadow for depth */
+}
+
+
+/* Footer - ensuring it stays at the bottom with adequate space */
+.footer {
+    position: fixed; /* Keeps footer at the bottom of the content, change to 'fixed' if it should stick at the bottom of the viewport */
+    width: 100%;
+    color: white;
+    padding: 20px;
+    background-color: #292669;
+    margin-top: 50px; /* Adds additional space above the footer */
+}
+
+        /* Body and HTML for full height management */
+html, body {
+    height: 100%; /* Ensure the full height is considered */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Helps manage footer and content spacing */
+}
+
+/* Main content styling - Ensure it pushes footer down */
+.content {
+    flex: 1 0 auto; /* Takes necessary space and grows */
+    padding: 20px; /* Padding around the content */
+}
+
+/* Footer Styling */
+.footer {
+    flex-shrink: 0; /* Prevents the footer from shrinking */
+    width: 100%;
+    padding: 20px;
+    background-color: #292669;
+    color: white;
+    text-align: center;
+    position: relative; /* Change to absolute if you want it always at the bottom of content */
+    bottom: 0;
+    left: 0;
+}
+
+.video-container {
+    width: 40%; /* Adjusted width to make it smaller */
+    margin: auto; /* Centers the video container */
+    padding-bottom: 20px; /* Space at the bottom inside the container */
+    margin-bottom: 100px; /* Increased bottom margin to push away the footer */
+    border: 2px solid #4CAF50; /* Adding a border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adding a subtle shadow for depth */
+    position: relative; /* Ensures positioning is relative to layout flow */
+    background-color: #fff; /* Optional: Adding a background color if needed */
+}
+
+.carousel 2-inner img {
+    height: auto;  /* Maintain aspect ratio */
+    max-height: 60px; /* Decrease maximum height for smaller carousel appearance */
+    width: auto;  /* Width adjusted automatically based on height to maintain aspect ratio */
+    margin: auto; /* Center the images horizontally in their slide */
+}
+
+.carousel 2{
+    margin-top: 20px; /* Space from the previous content */
+    margin-bottom: 20px; /* Space before the next content */
+    padding: 10px 0; /* Padding around the carousel for visual spacing without increasing size */
+}
+
+.carousel-item {
+    position: relative;
+    text-align: center;
+    color: white; /* Text color */
+}
+
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20%;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff; /* Ensure text is readable */
+    text-align: center;
+    background: rgba(44, 62, 80, 0.7); /* Semi-transparent background for text */
+}
+
+.carousel-caption h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    max-width: 70%;
+    margin: auto; /* Centering the paragraph inside the caption */
+}
+
+/* Adding diagonal shapes via pseudo-elements */
+.carousel-item:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom left, rgba(100, 100, 150, 0.5) 50%, transparent 50%);
+    pointer-events: none; /* Ensures clicks pass through */
+}
+
+        .container.mt-4 {
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1); /* Soft shadow for a subtle depth effect */
+}
+
+.text-center {
+    color: #292669; /* Matching the header color for consistency */
+    margin: 0 auto;
+    max-width: 800px; /* Ensures the text is not too wide on larger screens */
+    font-size: 18px; /* Slightly larger font for better readability */
+    line-height: 1.6; /* More readable line spacing */
+}
+
+        /* SIEM Carousel styles */
+        .siem-carousel .carousel-inner img {
+            width: 100%;
+            height: 500px; /* Fixed height */
+            object-fit: cover;
+        }
+        .siem-carousel .carousel-caption {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        /* Partners Carousel specific styles */
+        .partners-carousel .carousel-inner img {
+            width: 100%;
+            height: 250px; /* Smaller fixed height */
+            object-fit: cover;
+        }
+        .partners-carousel .carousel-caption {
+            background: rgba(44, 62, 80, 0.7);
+            padding: 10px;
+        }
+        .partners-carousel .carousel-indicators li {
+            background-color: #555;
+        }
+        .partners-carousel .carousel-indicators li:hover,
+        .partners-carousel .carousel-indicators .active {
+            background-color: #fff;
+        }
+          /* Carousel styles */
+        .partners-carousel {
+            position: relative;
+            margin: auto;
+            width: 100%;
+            height: 150px; /* Reduced height */
+            background-color: #fff; /* White background for contrast */
+        }
+
+        .partners-carousel .carousel-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .partners-carousel .carousel-item {
+            text-align: center;
+            vertical-align: middle;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .partners-carousel img {
+            height: 100px; /* Standard height for all logos */
+            width: auto;
+            padding: 10px; /* Spacing around logos */
+        }
+
+        .carousel-control-prev, .carousel-control-next {
+            width: 50px; /* Smaller control width */
+        }
+
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            background-color: #000; /* Black arrows */
+            border-radius: 50%;
+        }
+
+        .carousel-indicators {
+            bottom: -50px; /* Move indicators below the carousel */
+        }
+
+        .carousel-indicators li {
+            background-color: #000; /* Black indicators */
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .carousel-indicators .active {
+            background-color: #666; /* Dark grey for active indicator */
+        }
+
+
+        </style>
+    </head>
+
+    <body>
+        <!-- Header section-->
+        <div class="header">
+            <div class="header-left">
+                <a href="{{url_for('home')}}" class="logo-container">
+                    <img src="{{logo_url}}" alt="ScanmyLog Logo">
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="{{url_for('login')}}" class="login-button">Login</a>
+                <a href="{{url_for('register')}}" class="register-button">Register</a>
+            </div>
+        </div>
+
+<div id="siemCarousel" class="carousel slide" data-ride="carousel" style="width:100%; height:500px;">
+
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#siemCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#siemCarousel" data-slide-to="1"></li>
+    <li data-target="#siemCarousel" data-slide-to="2"></li>
+      <li data-target="#siemCarousel" data-slide-to="3"></li>
+    <li data-target="#siemCarousel" data-slide-to="4"></li>
+    <li data-target="#siemCarousel" data-slide-to="5"></li>
+
+  </ol>
+
+  <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://appomni.com/wp-content/uploads/2024/05/threat-detection-diagram.png" alt="Slide 1" class="d-block w-100">
+<div class="carousel-caption d-flex align-items-center justify-content-center">
+    <div class="text-content" style="background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,123,0.5)); padding: 20px; border-radius: 5px;">
+        <h1>Moving People Forward Towards a Better Future!</h1>
+        <p>We improve people's lives and provide innovative solutions.</p>
+    </div>
+</div>
+
+        </div>
+        <!-- Additional slides -->
+        <div class="carousel-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgCZURM969NJYufIrTr3M4mkn8FeGDMPWtng&s" alt="Slide 2" class="d-block w-100">
+<div class="carousel-caption d-flex justify-content-center align-items-end" style="bottom: 0; background-color: rgba(0, 0, 0, 0.75); width: 100%;">
+    <div class="text-content text-center" style="padding: 10px;">
+        <h1>Moving People Forward Towards a Better Future!</h1>
+        <p>We improve people's lives and provide innovative solutions.</p>
+    </div>
+</div>
+
+        </div>
+    <div class="carousel-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzC0RWBpyNmtGN4dTUylBQ6sw3sWn-KDdcuA&s" alt="Slide 3" class="d-block w-100" style="height:500px;">
+<div class="carousel-caption d-flex justify-content-center align-items-center" style="width: 100%; background: rgba(0, 0, 0, 0.3); position: absolute; bottom: 0;">
+    <div class="text-content" style="padding: 20px;">
+        <h1>Moving People Forward Towards a Better Future!</h1>
+        <p>We improve people's lives and provide innovative solutions.</p>
+    </div>
+</div>
+
+        </div>
+      <div class="carousel-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBJPWHVn2laRFKK-Y1newaGZpRZSmpQlfjiQ&s" alt="Slide 4" class="d-block w-100" style="height:500px;">
+<div class="carousel-caption d-flex align-items-center justify-content-center">
+    <div class="text-content" style="text-shadow: 2px 2px 8px rgba(0,0,0,0.8);">
+        <h1>Moving People Forward Towards a Better Future!</h1>
+        <p>We improve people's lives and provide innovative solutions.</p>
+    </div>
+</div>
+      </div>
+    </div>
+      <div class="carousel-item">
+      <img src="https://mms.businesswire.com/media/20211130005947/en/931486/4/PRESS_RELEASE_-_FINAL%2C_NOV._PRODUCT_GRAPHIC_-_FINAL_-_PRESS_RELEASE.jpg?download=1" alt="Slide 5" class="d-block w-100" style="height:500px;">
+<div class="carousel-caption d-flex align-items-end justify-content-center" style="bottom: 10%; width: 100%;">
+    <div class="text-content text-center" style="background: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 10px;">
+        <h1 style="color: #333;">Moving People Forward Towards a Better Future!</h1>
+        <p style="color: #666;">We improve people's lives and provide innovative solutions.</p>
+    </div>
+</div>
+      </div>
+
+    </div>
+      <div class="carousel-item">
+      <img src="https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.networkmanagementsoftware.com%2Fwp-content%2Fuploads%2F5-security-event-manager-main-dashboard_643x400.jpg&tbnid=1mjDFVsOQ3IMAM&vet=12ahUKEwj7uJ3O5YyJAxWPZmwGHcmlMI0QxiAoAXoECAAQLg..i&imgrefurl=https%3A%2F%2Fwww.networkmanagementsoftware.com%2Fsolarwinds-security-and-event-manager-review%2F&docid=h42ZjWAgCM137M&w=643&h=400&itg=1&q=threat%20detection%20graphics&ved=2ahUKEwj7uJ3O5YyJAxWPZmwGHcmlMI0QxiAoAXoECAAQLg" alt="Slide 6" class="d-block w-100" style="height:500px;">
+      <div class="carousel-caption d-none d-md-block">
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="carousel-control-prev" href="#siemCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#siemCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+<div class="content-container">
+    <!-- Text Section -->
+    <div class="text-section">
+    <h2>An Advanced SIEM Framework for Elevated Cybersecurity Posture</h2>
+    <p class="justified-text">Scanmylogs is an innovative Security Information and Event Management (SIEM) website
+        that revolutionizes how to monitor, analyze, and respond to security threats. By offering a comprehensive
+        suite of tools tailored to enhance security postures, Scanmylogs delivers a seamless integration
+        of real-time surveillance and detailed event analysis. By combining many advanced features with a user-centric
+        approach to security management, Scanmylogs stands out as a highly effective tool that not only protects against
+        threats but also enhances the operational efficiency of security teams.</p>
+</div>
+    <!-- Feature Box: System Monitoring -->
+    <div class="feature-box">
+        <a href="{{url_for('feature')}}">
+            <i class="fas fa-star fa-3x rotate-icon" style="color: white;"></i>
+        </a>
+        <h2>System Features</h2>
+    </div>
+</div>
+
+<!-- Video Container -->
+<div class="video-container my-4">
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/uIKE6PCCeS8"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+</div>
+
+
+<!-- Footer -->
+
+<div class="footer" style="background-color: #292669; color: white; padding: 20px; position: fixed; bottom: 0;
+width: 100%; display: flex; align-items: center; justify-content: center;">
+    <div class="footer-section" style="margin-right: 50px;">
+<a href="{{url_for('terms_conditions')}}" class="terms_conditions-link">Terms & Conditions</a> |
+<a href="{{url_for('help')}}" class="help-link">Help</a>
+
+    </div>
+        <div class="footer-section" style="flex-grow: 2; display: flex; justify-content: center; gap: 20px;
+        margin: 0 10px;">
+        <a href="{{facebook_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f fa-2x"></i>
+        </a>
+        <a href="{{twitter_url}}" target="_blank" class="social-icon">
+            <i class="fa-brands fa-x-twitter" style="font-size: 2rem;"></i>
+        </a>
+        <a href="{{youtube_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-youtube fa-2x"></i>
+        </a>
+        <a href="{{linkedin_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in fa-2x"></i>
+        </a>
+        <a href="{{instagram_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-instagram fa-2x"></i>
+        </a>
+    </div>
+
+<div class="footer-section" style="margin-left: 10px;">
+<a href="{{url_for('privacy_policy')}}" class="privacy_policy-link">Privacy Policy</a> |
+<a href="{{url_for('feedback')}}" class="feedback-link">Feedback</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.carousel').carousel({
+                interval: 5000
+            });
+        });
+    </script>
+</body>
+</html>

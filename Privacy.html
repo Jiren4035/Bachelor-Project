@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <!-- HTML meta tags for responsive design and character encoding -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <!-- Bootstrap and Font Awesome for styling and icons -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+        
+            /* Global */
+        .body {
+            body, .header, .login-button, .register-button, .container, .footer, .footer a, .footer a:hover 
+            font-family: 'Roboto', sans-serif !important;            }
+        
+        h1 {
+            font-size: 28px; 
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            text-align: justify;
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        }
+
+            /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #292669;
+            color: white;
+            padding: 10px;
+        }
+
+        .logo-container img {
+            cursor: pointer;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .login-button, .register-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-left: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover, .register-button:hover {
+            background-color: #45a049;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+            /* Body */
+        .container {
+        padding-bottom: 10px; /* Increased bottom padding to make space for the footer */
+        }
+
+        .body, html {
+        height: 100%;
+        margin: 0;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 18px;
+        text-align: justify;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        padding-bottom: 100px; /* Use the actual height of your footer */
+        }
+
+            /* Footer */
+        .footer {
+        background-color: #292669; 
+        color: white;
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        }
+
+        .footer, .footer a, .footer a:hover {
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        .social-icon {
+            color: #FFF;
+            margin: 0 10px;
+        }
+
+        .social-icon i {
+            transition: color 0.3s ease;
+        }
+
+        .social-icon .twitter-icon {
+            font-size: irem;
+        }   
+
+        </style>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <a href="{{url_for('home')}}" class="logo-container">
+                    <img src="{{logo_url}}" alt="ScanmyLog Logo">
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="{{url_for('login')}}" class="login-button">Login</a>
+                <a href="{{url_for('register')}}" class="register-button">Register</a>
+            </div>
+        </div>
+
+<!-- Privacy Policy Content -->
+
+<div class="container">
+<div style="background-color: white; padding: 20px; margin-bottom: 100px;"> <!-- Added margin-bottom for spacing -->
+<h1>Privacy Policy for ScanmyLog</h1>
+        <p class="justified-text">ScanmyLog provides a leading security information and event management (‘SIEM’) 
+        solution for the automated collection, processing, and analysis of security event data. ScanmyLog collects user,
+        host, and network data and utilizes both machine learning and deterministic detection techniques to gain 
+        seamless visibility, reducing the dwell time of threats that live outside the perimeter. </p>
+
+<h2>Security</h2>
+        <p class="justified-text">The security of your personal information is important to us. We have implemented 
+        commercially reasonable technical and organizational safeguards to appropriately protect your personal 
+        information against accidental, unauthorized, or unlawful access, use, loss, destruction, or damage. Still, 
+        no system can be guaranteed to be 100% secure. </p>
+
+<h2>Data Retention</h2>
+        <p class="justified-text">We may retain your personal information for the period necessary to fulfill the 
+        purposes outlined in this Privacy Policy, for as long as your account is active or as needed to provide you with
+        our Services, comply with our legal obligations, resolve disputes, and enforce our agreements, unless a longer 
+        retention period is required or permitted by law. </p>
+
+<h2>Verification of Identity; Authorized Agents</h2>
+        <p class="justified-text">We may need to verify your identity in order to process your information/know, access,
+        appeal, correction, or deletion requests and reserve the right to confirm your residency. To verify your 
+        identity, we may require government identification, a declaration under penalty of perjury, or other 
+        information, where permitted by law. </p>
+
+<h2>Changes to this Privacy Policy:</h2>
+        <p class="justified-text">We reserve the right to update or modify this Privacy Policy at any time. Any changes 
+        will be effective immediately upon posting the revised policy on ScanmyLog. We encourage you to review this 
+        Privacy Policy periodically for any updates. </p>
+
+<h2>Contact Us:</h2>
+        <p class="justified-text">If you have any questions or concerns about this Privacy Policy or our data practices,
+        please contact us at noreplyscanmylog@gmail.com. </p>
+
+        <p class="justified-text"><strong>Last Updated:</strong> February 12, 2024</p>
+        <p class="justified-text">You can download a printable copy of this Privacy Policy 
+        <a href="javascript:window.print()">here</a>. </p>
+    </div>
+</div>
+
+
+<!-- Footer -->
+
+<div class="footer" style="background-color: #292669; color: white; padding: 20px; position: fixed; bottom: 0; 
+width: 100%; display: flex; align-items: center; justify-content: center;">
+    <div class="footer-section" style="margin-right: 50px;">
+<a href="{{url_for('terms_conditions')}}" class="terms_conditions-link">Terms & Conditions</a> |
+<a href="{{url_for('help')}}" class="help-link">Help</a>
+
+    </div>
+        <div class="footer-section" style="flex-grow: 2; display: flex; justify-content: center; gap: 20px; margin: 
+        0 10px;">
+        <a href="{{facebook_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f fa-2x"></i>
+        </a>
+        <a href="{{twitter_url}}" target="_blank" class="social-icon">
+            <i class="fa-brands fa-x-twitter" style="font-size: 2rem;"></i>
+        </a>
+        <a href="{{youtube_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-youtube fa-2x"></i>
+        </a>
+        <a href="{{linkedin_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in fa-2x"></i>
+        </a>
+        <a href="{{instagram_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-instagram fa-2x"></i>
+        </a>
+    </div>
+
+<div class="footer-section" style="margin-left: 10px;">
+<a href="{{url_for('privacy_policy')}}" class="privacy_policy-link">Privacy Policy</a> |
+<a href="{{url_for('feedback')}}" class="feedback-link">Feedback</a>
+        </div>
+    </div>
+
+    </script>
+    </body>
+    </html>

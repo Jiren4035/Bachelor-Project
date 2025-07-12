@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+        
+            /*Global*/
+        .body {
+            body, .header, .login-button, .register-button, .container, .footer, .footer a, .footer a:hover 
+            font-family: 'Roboto', sans-serif !important;            
+            }
+        
+        h1 {
+            font-size: 28px; 
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+        
+        h3 {
+            font-size: 20px;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 16px;
+            text-align: justify;
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        }
+
+            /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #292669;
+            color: white;
+            padding: 10px;
+        }
+
+        .logo-container img {
+            cursor: pointer;
+        }
+
+        .justified-text {
+            text-align: justify;
+        }
+
+        .login-button, .register-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-left: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover, .register-button:hover {
+            background-color: #45a049;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+            /* Body */
+        .container {
+            padding-bottom: 10px; /* Increased bottom padding to make space for the footer */
+        }
+
+        .body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            text-align: justify;
+            background-image: url('{ background_url }');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-bottom: 100px; /* Use the actual height of your footer */
+        }
+
+            /* Footer */
+        .footer {
+            background-color: #292669; 
+            color: white;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .footer, .footer a, .footer a:hover {
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        .social-icon {
+            color: #FFF;
+            margin: 0 10px;
+        }
+
+        .social-icon i {
+            transition: color 0.3s ease;
+        }
+
+        .social-icon .twitter-icon {
+            font-size: irem;
+        }
+
+        </style>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <a href="{{url_for('home')}}" class="logo-container">
+                    <img src="{{logo_url}}" alt="ScanmyLog Logo">
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="{{url_for('login')}}" class="login-button">Login</a>
+                <a href="{{url_for('register')}}" class="register-button">Register</a>
+            </div>
+        </div>
+
+<!-- Help Section-->
+
+<div class="container">
+    <div style="background-color: white; padding: 20px; margin-bottom: 100px;">
+                <h1>Help & FAQs</h1>
+
+        <h2>Frequently Asked Questions (FAQs)</h2>
+        <div class="faq-item">
+            <h3>How do I create an account?</h3>
+            <p class="justified-text">Creating an account is simple. Just click on the "Register" button at the top 
+            right corner of the homepage and fill in the required details.</p> <br>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I use ScanmyLog on multiple devices?</h3>
+            <p class="justified-text">Yes, your ScanmyLog account is accessible on any compatible device, provided you 
+            log in with your credentials.</p> <br>
+        </div>
+
+        <div class="faq-item">
+            <h3>What should I do if I forget my password?</h3>
+            <p class="justified-text">If you forget your password, click on the "Forgot Password?" link on the login 
+            page and follow the instructions to reset it.</p> <br>
+        </div>
+
+        <div class="faq-item">
+            <h3>How does real-time monitoring work?</h3>
+            <p class="justified-text">Our real-time monitoring system continuously analyzes your sever's and clients's
+            activity to detect and alert you of any unusual behavior as it happens. This enables immediate response to
+            potential threats, ensuring the security and integrity of your system. </p> <br>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do the graphs update in real time?</h3>
+            <p class="justified-text">Yes, our analytics dashboard features graphs that update in real time. This provides
+            you with the most current view of your system's performance and security posture, allowing for timely
+            decision-making. </p> <br>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can the server collect its own logs?</h3>
+            <p class="justified-text">Yes, the log collector is designed to collect logs from various sources, including its
+            own operational logs. This self-monitoring capability ensures comprehensive visibility into the system's
+            functionality and performance. </p> <br>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I send multiple alerts to multiple accounts?</h3>
+            <p class="justified-text">Yes, our alert management system allows you to configure alerts to be sent to multiple
+            accounts. This ensures that all relevant parties are promptly informed about critical events, enabling a
+            coordinated response. </p> <br>
+        </div>
+
+        <div class="faq-item">
+            <h3>Who can I contact for more support?</h3>
+            <p class="justified-text">If you need more support, you can reach out to us through the contact details provided
+            below. </p> <br>
+        </div>
+
+        <h2>Contact Us</h2>
+        <p class="justified-text">Our support team is available to help you with any issues or questions you may have 
+        about using ScanmyLog. Please feel free to reach out to us using the following contact details: </p>
+
+        <ul>
+            <li><strong>Email:</strong> support@scanmylog.com</li>
+            <li><strong>Phone:</strong> +966 53 5287164</li>
+        </ul>
+
+        <p>Our business hours are Monday to Friday, from 8 am 5 pm (GMT +8). We aim to respond to all inquiries within 
+        24 hours.</p>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="footer" style="background-color: #292669; color: white; padding: 20px; position: fixed; bottom: 0; 
+width: 100%; display: flex; align-items: center; justify-content: center;">
+    <div class="footer-section" style="margin-right: 50px;">
+<a href="{{url_for('terms_conditions')}}" class="terms_conditions-link">Terms & Conditions</a> |
+<a href="{{url_for('help')}}" class="help-link">Help</a>
+
+    </div>
+        <div class="footer-section" style="flex-grow: 2; display: flex; justify-content: center; gap: 20px; margin: 
+        0 10px;">
+        <a href="{{facebook_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f fa-2x"></i>
+        </a>
+        <a href="{{twitter_url}}" target="_blank" class="social-icon">
+            <i class="fa-brands fa-x-twitter" style="font-size: 2rem;"></i>
+        </a>
+        <a href="{{youtube_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-youtube fa-2x"></i>
+        </a>
+        <a href="{{linkedin_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in fa-2x"></i>
+        </a>
+        <a href="{{instagram_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-instagram fa-2x"></i>
+        </a>
+    </div>
+
+<div class="footer-section" style="margin-left: 10px;">
+<a href="{{url_for('privacy_policy')}}" class="privacy_policy-link">Privacy Policy</a> |
+<a href="{{url_for('feedback')}}" class="feedback-link">Feedback</a>
+        </div>
+    </div>
+
+    </script>
+    </body>
+    </html>

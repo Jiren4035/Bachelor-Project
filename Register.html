@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - ScanmyLog</title>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+
+          /* Global styles */
+    body, .header, .login-button, .register-button, .container, .footer, .footer a, .footer a:hover {
+        font-family: 'Roboto', sans-serif;
+    }
+
+    h1 {
+        font-size: 28px;
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    h2 {
+        font-size: 24px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: justify;
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+
+    .body, html {
+        height: 100%;
+        margin: 0;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 18px;
+        text-align: justify;
+        background-image: url('{{ background_url }}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin-bottom: 50px;
+        height: auto;
+    }
+
+        /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #292669;
+        color: white;
+        padding: 20px;
+    }
+
+    .header .logo-container img {
+        height: 100px;
+        cursor: pointer;
+        width: auto;
+    }
+
+    .header .nav-links {
+        display: flex;
+        align-items: center;
+    }
+
+    .header .nav-links a {
+        color: white;
+        text-decoration: none;
+        margin: 0 10px; /* Adjust spacing as needed */
+    }
+
+    .header h2 {
+        font-weight: bold;
+        text-decoration: underline;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding-bottom: 200px;
+        flex: 1;
+    }
+
+    .login-button, .register-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        margin-left: 1px;
+        text-decoration: none;
+        font-size: 20px;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+        margin-right: 10px;
+    }
+
+    .login-button:hover, .register-button:hover {
+        background-color: #45a049;
+    }
+
+    .header-right a {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+        /* Body */
+    .register-container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        max-width: 400px;
+        margin: auto;
+        margin-top: 10px;
+        text-align: center;
+        margin-bottom: 50px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .register-container input[type="text"],
+    .register-container input[type="email"],
+    .register-container input[type="password"],
+    .register-container button {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    .register-container button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .register-container button:hover {
+        background-color: #45a049;
+    }
+
+    .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .login-button, .register-button {
+        color: inherit !important; /* Retains the original color */
+        text-decoration: none !important; /* Removes underline */
+    }
+
+    .benefits-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 400px;
+    margin: 20px 0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+    }
+
+    .benefits-list {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .benefit-item {
+        margin-bottom: 15px;
+    }
+
+    .benefit-title {
+        font-weight: bold;
+    }
+
+        /* Footer */
+    .footer {
+        background-color: #292669;
+        color: white;
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+    }
+
+    .footer, .footer a, .footer a:hover {
+        color: white !important;
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        opacity: 0.8;
+    }
+
+    .social-icon {
+        color: #FFF;
+        margin: 0 10px;
+    }
+
+    .social-icon i {
+        transition: color 0.3s ease;
+    }
+
+    .social-icon .twitter-icon {
+        font-size: irem;
+    }
+
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+ <div class="header">
+            <div class="header-left">
+                <a href="{{url_for('home')}}" class="logo-container">
+                    <img src="{{logo_url}}" alt="ScanmyLog Logo">
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="{{url_for('login')}}" class="login-button">Login</a>
+                <a href="{{url_for('register')}}" class="register-button">Register</a>
+            </div>
+        </div>
+
+<div class="main-content" style="display: flex; justify-content: space-around; padding: 20px;">
+    <div class="register-container">
+        <form action="/register" method="post">
+                <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <button type="submit">Register</button>
+        </form>
+        <p>By signing up, you agree to our
+            <a href="{{url_for('terms_conditions')}}" style="color: green;">Terms & Conditions</a>
+            and
+            <a href="{{url_for('privacy_policy')}}" style="color: green;">Privacy Policy</a>.
+        </p>
+        <p>Do you have an account? If yes, try
+            <a href="{{ url_for('login') }}" style="color: green;">Login</a>
+        </p>
+    </div>
+    <div class="benefits-container">
+<h2>Benefits of Creating an Account</h2>
+<ul class="benefits-list">
+<li class="benefit-item">
+        <p class="justified-text"><span class="benefit-title">Personalized Experience:</span> Tailor your interactions
+        with the website according <br> to your preferences and interests, enhancing usability and satisfaction. </p>
+    </li>
+<li class="benefit-item">
+        <p class="justified-text"><span class="benefit-title">Save Your Work:</span> Securely save your progress,
+        settings, or creations, enabling <br> you to pick up right where you left off at any time. </p>
+    </li>
+<li class="benefit-item">
+        <p class="justified-text"><span class="benefit-title">Access More Functions:</span> Unlock advanced features and
+        capabilities exclusive <br> to registered users, expanding what you can achieve on the platform. </p>
+    </li>
+<li class="benefit-item">
+        <p class="justified-text"><span class="benefit-title">Seamless Synchronization:</span> Sync your data across
+        devices, ensuring you have <br> access to your work, preferences, and activities no matter where you log in
+        from. </p>
+    </li>
+<li class="benefit-item">
+        <p class="justified-text"><span class="benefit-title">Receive Updates and Alerts:</span> Stay informed with the
+        latest news, updates, and <br> exclusive offers tailored to your interests and activities on the site. </p>
+    </li>
+</ul>
+    </div>
+</div>
+</div>
+
+<!-- Footer -->
+<div class="footer" style="background-color: #292669; color: white; padding: 20px; position: fixed; bottom: 0;
+width: 100%; display: flex; align-items: center; justify-content: center;">
+    <div class="footer-section" style="margin-right: 50px;">
+<a href="{{url_for('terms_conditions')}}" class="terms_conditions-link">Terms & Conditions</a> |
+<a href="{{url_for('help')}}" class="help-link">Help</a>
+
+    </div>
+        <div class="footer-section" style="flex-grow: 2; display: flex; justify-content: center; gap: 20px; margin:
+        0 10px;">
+        <a href="{{facebook_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f fa-2x"></i>
+        </a>
+        <a href="{{twitter_url}}" target="_blank" class="social-icon">
+            <i class="fa-brands fa-x-twitter" style="font-size: 2rem;"></i>
+        </a>
+        <a href="{{youtube_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-youtube fa-2x"></i>
+        </a>
+        <a href="{{linkedin_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in fa-2x"></i>
+        </a>
+        <a href="{{instagram_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-instagram fa-2x"></i>
+        </a>
+    </div>
+
+<div class="footer-section" style="margin-left: 10px;">
+<a href="{{url_for('privacy_policy')}}" class="privacy_policy-link">Privacy Policy</a> |
+<a href="{{url_for('feedback')}}" class="feedback-link">Feedback</a>
+        </div>
+    </div>
+    </script>
+    </body>
+    </html>

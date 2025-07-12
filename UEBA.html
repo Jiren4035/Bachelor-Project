@@ -1,0 +1,528 @@
+   <!DOCTYPE html>
+<html>
+<head>
+    <title>Event Viewer Data</title>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+    <style>
+         /* Global styles */
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif, Arial, Helvetica, sans-serif;
+    }
+
+        /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #292669;
+        color: white;
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .header-left, .header-right {
+        display: flex;
+        align-items: center;
+    }
+
+    .settings-button, .preferences-button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        margin-left: 5px;
+        text-decoration: none;
+        font-size: 20px;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+    }
+
+    .settings-button:hover, .preferences-button:hover {
+        background-color: #45a049;
+    }
+
+            .logout-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: darkred;
+        }
+
+        /* Navigation Bar */
+    .navbar {
+        background-color: #292669;
+        overflow: hidden;
+    }
+
+    .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .navbar a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        .button-row {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px; /* Adds spacing between elements */
+    }
+
+    .uniform-button {
+        background-color: #28a745; /* Green background color */
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px; /* Adjusted font size for better readability */
+    }
+
+    .form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.labels-row, .inputs-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* Add some space between the rows */
+}
+
+.text-input {
+    flex: 1; /* Make text inputs fill the available space equally */
+    margin-right: 10px; /* Space between inputs */
+}
+
+.text-input:last-child {
+    margin-right: 0; /* Remove margin for the last input to align with the end */
+}
+
+label {
+    flex: 1; /* Distribute space equally between labels */
+    margin-right: 10px; /* Space between labels */
+}
+
+label:last-child {
+    margin-right: 0; /* Remove margin for the last label to align with the end */
+}
+
+
+        .text-input {
+        padding: 5px;
+        font-size: 14px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 120px; /* Smaller width for a compact look */
+        }
+
+
+        #inputForm {
+            display: none;
+            position: fixed;
+            border: 1px solid #d3d3d3;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 2px 2px 2px #d3d3d3;
+            width: 300px;
+        }
+
+                #inputForm div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        #inputForm .form-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        #inputForm label {
+            margin-right: 10px;
+        }
+        #inputForm input[type=text],
+        #inputForm textarea {
+            flex: 1;
+        }
+        #inputForm textarea {
+            height: 80px;
+        }
+        #inputForm .form-title {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        #inputForm .close-button {
+            float: right;
+            cursor: pointer;
+        }
+</style>
+<body>
+            <!-- Header section-->
+        <div class="header">
+            <div class="header-left">
+                <a href="{{url_for('home')}}">
+                    <img src="{{logo_url}}" alt="ScanmyLog Logo">
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="{{url_for('settings')}}" class="settings-button">Settings & Preferences</a>
+                            <form action="{{ url_for('logout') }}" method="post" style="margin-left: 10px;">
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
+            </div>
+        </div>
+
+<div class="navbar">
+    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+    <a href="{{ url_for('show_data') }}">Filter</a>
+    <a href="{{ url_for('alert') }}">Alert</a>
+    <a href="{{ url_for('case') }}">Case</a>
+    <a href="{{ url_for('ueba') }}">UEBA</a>
+    <a href="{{ url_for('event_help') }}">Event Help</a>
+</div>
+    <h2>Event Viewer Data Display</h2>
+
+        <!-- Filter Form -->
+    <form action="" method="get">
+        <div class="form-container">
+    <!-- Labels Row -->
+    <div class="labels-row">
+        <label for="event_id">Event ID:</label>
+        <label for="machine_name">Machine Name:</label>
+        <label for="log_name">Log Name:</label>
+        <label for="severity">Severity:</label>
+        <label for="message">Message:</label>
+        <label for="event_id_occurrences">Event ID Occurrences:</label>
+    </div>
+
+            <div class="inputs-row">
+    <select id="event_id" name="event_id">
+        <option value="">Select Event ID</option>
+        </select>
+
+    <select id="machine_name" name="machine_name">
+        <option value="">Select Machine Name</option>
+        </select>
+
+<select id="log_name" name="log_name">
+    <option value="">Select Log Name</option>
+    <option value="System">System</option>
+    <option value="Application">Application</option>
+    <option value="Security">Security</option>
+</select>
+
+<select id="severity" name="severity">
+    <option value="">Select Severity</option>
+    <option value="Low">Low</option>
+    <option value="Medium">Medium</option>
+    <option value="High">High</option>
+</select>
+
+
+        <input type="text" id="message" name="message">
+
+        <input type="text" id="event_id_occurrences" name="event_id_occurrences">
+</div>
+
+<form action="" method="get" id="filterForm">
+    <div class="form-container">
+        <!-- Labels and inputs omitted for brevity -->
+
+        <div class="button-row">
+            <input type="submit" value="Filter" class="uniform-button">
+            <!-- Reset button - Calls resetFilters() which is now improved -->
+            <button type="button" onclick="resetFilters()" class="uniform-button">Reset</button>
+            <a href="/download_csv" id="downloadCsvLink" class="uniform-button">Download as CSV</a>
+
+            <input type="email" id="recipientEmail" name="recipientEmail" class="text-input" placeholder="Recipient's email">
+            <button id="sendEmailButton" type="submit" name="action" value="sendEmail" class="uniform-button">Send as Email</button>
+
+
+        </div>
+    </div>
+</form>
+
+        </div>
+    </form>
+
+    <table>
+
+        <tr>
+            <th>Event ID</th>
+            <th>Time Created</th>
+            <th>Score</th>
+            <th>Severity</th>
+            <th>Message</th>
+            <th>IP Address</th>
+            <th>Machine Name</th>
+            <th>Log Name</th>
+            <th>Event ID Occurrences</th>
+            <th>Total Events Count</th>
+        </tr>
+        {% for doc in data %}
+        <tr oncontextmenu="showInputBox(event); return false;"> <!-- Modified line -->
+            <td>{{ doc.get('EventID', ' ') }}</td>
+            <td>{{ doc.get('TimeCreated', ' ') }}</td>
+            <td>{{ doc.get('Score', ' ') }}</td>
+            <td>{{ doc.get('Severity', ' ') }}</td>
+            <td>{{ doc.get('Message', ' ') }}</td>
+            <td>{{ doc.get('IPAddress', ' ') }}</td>
+            <td>{{ doc.get('MachineName', ' ') }}</td>
+            <td>{{ doc.get('LogName', ' ') }}</td>
+            <td>{{ doc.get('EventIDOccurrences', ' ') }}</td>
+            <td>{{ doc.get('TotalEventsCount', ' ') }}</td>
+        </tr>
+        {% endfor %}
+        {% if not data %}
+        <tr>
+            <td colspan="10">No results found.</td>
+        </tr>
+        {% endif %}
+    </table>
+
+
+
+    <!-- Right-click input form -->
+    <div id="inputForm">
+        <div class="close-button" onclick="hideForm()">X</div>
+        <div class="form-title">Edit Event</div>
+<div class="form-row">
+    <label for="eventID">Event ID:</label>
+    <input type="text" id="eventID" readonly>
+</div>
+<div class="form-row">
+    <label for="machineName">Machine Name:</label>
+    <input type="text" id="machineName" readonly>
+</div>
+<div class="form-row">
+    <label for="timeCreated">Time Created:</label>
+    <input type="text" id="timeCreated" readonly>
+</div>
+
+        <div class="form-row">
+            <label for="caseName">Case Name:</label>
+            <input type="text" id="caseName">
+        </div>
+        <div class="form-row">
+            <label for="description">Description:</label>
+            <textarea id="description"></textarea>
+        </div>
+        <button onclick="hideForm()">Cancel</button>
+        <button onclick="submitData()">Save</button>
+    </div>
+
+   <script>
+function resetFilters() {
+    // Option 1: Navigate to the base URL (removing all query parameters)
+    window.location.href = window.location.pathname;
+
+    // Option 2: Clear form inputs and reset URL parameters without redirecting
+    // This approach is more complex and requires manipulation of the browser's history API
+    // document.getElementById('filterForm').reset();
+    // history.pushState({}, '', window.location.pathname);
+}
+
+document.getElementById('sendEmailButton').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    var recipientEmail = document.getElementById('recipientEmail').value;
+    var query = {}; // Construct the query based on the filters applied by the user
+
+    if(recipientEmail) {
+        fetch('/send-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                recipientEmail: recipientEmail,
+                query: query
+            }),
+        })
+        .then(response => response.json())
+        .then(data => alert(data.message))
+        .catch(error => console.error('Error sending email:', error));
+    } else {
+        alert("Please enter the recipient's email address.");
+    }
+});
+
+
+
+       function populateEventIdDropdown() {
+    const eventIdSet = new Set(); // Use a Set to store unique Event IDs
+    document.querySelectorAll('table tr').forEach(row => {
+        const eventIdCell = row.cells[0];
+        if (eventIdCell) {
+            const eventId = eventIdCell.textContent.trim();
+            if (eventId) {
+                eventIdSet.add(eventId);
+            }
+        }
+    });
+
+    const eventIdDropdown = document.getElementById('event_id');
+    eventIdSet.forEach(eventId => {
+        const option = document.createElement('option');
+        option.value = eventId;
+        option.textContent = eventId;
+        eventIdDropdown.appendChild(option);
+    });
+}
+
+function populateMachineNameDropdown() {
+    const machineNameSet = new Set(); // Use a Set to store unique Machine Names
+    document.querySelectorAll('table tr').forEach(row => {
+        const machineNameCell = row.cells[6]; // Assuming machine name is in the 7th column
+        if (machineNameCell) {
+            const machineName = machineNameCell.textContent.trim();
+            if (machineName) {
+                machineNameSet.add(machineName);
+            }
+        }
+    });
+
+    const machineNameDropdown = document.getElementById('machine_name');
+    machineNameSet.forEach(machineName => {
+        const option = document.createElement('option');
+        option.value = machineName;
+        option.textContent = machineName;
+        machineNameDropdown.appendChild(option);
+    });
+}
+
+// Extend the DOMContentLoaded event listener to include machine name population
+window.addEventListener('DOMContentLoaded', (event) => {
+    populateEventIdDropdown();
+    populateMachineNameDropdown();
+    // Your existing code to add right-click event listener to each table row goes here.
+});
+
+    function showInputBox(event) {
+        event.preventDefault();
+
+        // Retrieve the clicked row
+        var rowElement = event.currentTarget;
+
+        // Extract data from the row's cells
+        var cells = rowElement.children;
+        var eventData = {
+            eventId: cells[0].textContent.trim(),
+            machineName: cells[6].textContent.trim(),
+            timeCreated: cells[1].textContent.trim(),
+            score: cells[2].textContent.trim(),
+            severity: cells[3].textContent.trim(),
+            message: cells[4].textContent.trim(),
+            ipAddress: cells[5].textContent.trim(),
+            logName: cells[7].textContent.trim(),
+            eventIdOccurrences: cells[8].textContent.trim(),
+            totalEventsCount: cells[9].textContent.trim()
+        };
+
+        // Populate the form with this data
+        document.getElementById("eventID").value = eventData.eventId;
+        document.getElementById("machineName").value = eventData.machineName;
+        document.getElementById("timeCreated").value = eventData.timeCreated;
+        // Populate other fields as necessary...
+
+        // Display the form
+        var inputForm = document.getElementById("inputForm");
+        inputForm.style.left = event.clientX + 'px';
+        inputForm.style.top = event.clientY + 'px';
+        inputForm.style.display = 'block';
+    }
+
+    function hideForm() {
+        var inputForm = document.getElementById("inputForm");
+        inputForm.style.display = 'none';
+    }
+
+    function submitData() {
+        // Gather form data
+        var formData = {
+            eventID: document.getElementById("eventID").value,
+            machineName: document.getElementById("machineName").value,
+            timeCreated: document.getElementById("timeCreated").value,
+            caseName: document.getElementById("caseName").value,
+            description: document.getElementById("description").value
+        };
+
+        // AJAX request to submit the form data
+        fetch('/submit-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            hideForm();
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+        // Add right-click event listener to each table row
+        document.querySelectorAll('table tr').forEach(row => {
+            row.addEventListener('contextmenu', showInputBox);
+        });
+    });
+
+    window.addEventListener('click', function(event) {
+        if (!event.target.closest('#inputForm')) {
+            hideForm();
+        }
+    });
+</script>
+</body>
+</html>

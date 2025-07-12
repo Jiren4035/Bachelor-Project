@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Viewer Help</title>
+    <style>
+        /* Global */
+        body, .header, .login-button, .register-button, .container, .footer, .footer a, .footer a:hover {
+            font-family: 'Roboto', sans-serif !important;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        h3 {
+            font-size: 18px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #292669;
+            color: white;
+            padding: 10px 0px;
+            width: 100%;
+        }
+
+        .header-left, .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .login-button, .register-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-left: 5px;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover, .register-button:hover {
+            background-color: #45a049;
+        }
+
+        .logout-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .logout-button:hover {
+            background-color: darkred;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background-color: #292669;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Body */
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #0056b3;
+        }
+
+        p, select, label {
+            line-height: 1.6;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        /* Chatbot styles */
+        .chat-toggle {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .chat-toggle:hover {
+            background-color: #45a049;
+        }
+
+        .chatbot-container {
+            position: fixed;
+            bottom: 50px;
+            left: 10px;
+            width: 300px;
+            border: 1px solid #292669;
+            border-radius: 5px;
+            background-color: white;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .chat-header {
+            background-color: #292669;
+            color: white;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+
+
+        .send-button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .send-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Additional styles for speech bubbles */
+.chat-message {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #4CAF50; /* User messages in green */
+    color: white;
+    align-self: flex-end;
+    margin-right: 10px;
+    border-bottom-right-radius: 0;
+}
+
+.bot-message {
+    background-color: #f4f4f4; /* Bot messages in light gray */
+    color: black;
+    align-self: flex-start;
+    margin-left: 10px;
+    border-bottom-left-radius: 0;
+}
+
+.chat-output {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-y: auto;
+    padding: 10px;
+    background: #fff;
+    height: 200px;
+}
+
+.chat-input {
+    width: 50%; /* Adjust the width as needed */
+    padding: 20px;
+    margin: 0 auto; /* This centers the input box */
+    display: block; /* Ensures it treats the margins correctly */
+    border: none;
+    border-top: 1px solid #ddd;
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <div class="header">
+        <div class="header-left">
+            <a href="#">
+                <img src="#" alt="Logo">
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="#" class="register-button">Settings & Preferences</a>
+            <form action="#" method="post" style="margin-left: 10px;">
+                <button type="submit" class="logout-button">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="navbar">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('dashboard') }}">Filter</a>
+        <a href="{{ url_for('dashboard') }}">Alert</a>
+        <a href="{{ url_for('dashboard') }}">Case</a>
+        <a href="{{ url_for('dashboard') }}">UEBA</a>
+        <a href="{{ url_for('event_help') }}">Event Help</a>
+    </div>
+
+    <div class="container">
+        <h1>Event Help</h1>
+        <form method="post">
+            <label for="eventID">Select Event ID:</label>
+            <select id="eventID" name="eventID" onchange="this.form.submit()">
+                <option value="">Please select an Event ID</option>
+                {% for event_id, _ in event_descriptions.items() %}
+                    <option value="{{ event_id }}">{{ event_id }}</option>
+                {% endfor %}
+            </select>
+        </form>
+        <div id="descriptionBox">
+            {{ selected_description|safe }}
+        </div>
+        <button id="readButton">Read Description</button>
+    </div>
+
+    <!-- Chatbot Toggle and Container -->
+    <button id="chatToggle" class="chat-toggle">Chat</button>
+    <div class="chatbot-container">
+        <div class="chat-header"><h2>Chatbot Help</h2></div>
+        <div id="chatOutput" class="chat-output"></div>
+        <input type="text" id="userInput" class="chat-input" placeholder="Enter event ID or ask for help...">
+        <button onclick="sendMessage()" class="send-button">Send</button>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var chatToggle = document.getElementById('chatToggle');
+        var chatContainer = document.querySelector('.chatbot-container');
+        chatToggle.addEventListener('click', function() {
+            chatContainer.style.display = chatContainer.style.display === 'none' ? 'block' : 'none';
+        });
+
+        initialGreeting();
+
+        document.getElementById('userInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    });
+
+    function initialGreeting() {
+        appendMessage("Hello, I am an AI bot here to assist you with Event IDs.", 'bot-message');
+    }
+
+    var eventDescriptions = {
+        "1102": "Event ID 1102 - Audit Log Cleared: This event ID is logged when the Windows security audit log is cleared. It's a critical part of the Windows Security auditing system.",
+        "4624": "Event ID 4624 - Successful Account Logon: This event ID is logged when an account successfully logs onto Windows, providing insights into user activity and security."
+    };
+
+    function sendMessage() {
+        var input = document.getElementById('userInput').value.trim();
+        if (input) {
+            appendMessage(input, 'user-message');
+
+            setTimeout(function() {
+                var response = getResponse(input);
+                appendMessage(response, 'bot-message');
+                document.getElementById('userInput').value = ''; // Clear input after sending
+            }, 1000);
+        }
+    }
+
+    function getResponse(input) {
+        return eventDescriptions[input] || "I don't recognize that event ID. Please try another ID or ask for help.";
+    }
+
+    function appendMessage(text, className) {
+        var messageDiv = document.createElement('div');
+        messageDiv.textContent = text;
+        messageDiv.className = 'chat-message ' + className;
+        document.getElementById('chatOutput').appendChild(messageDiv);
+        document.getElementById('chatOutput').scrollTop = document.getElementById('chatOutput').scrollHeight; // Auto-scroll to the latest message
+    }
+</script>
+</body>
+</html>

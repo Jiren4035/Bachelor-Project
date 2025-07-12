@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <style>
+
+            /* Global styles */
+        body, .header, .login-button, .register-button, .container, .footer, .footer a, .footer a:hover {
+            font-family: 'Roboto', sans-serif !important;
+        }
+
+        h1 {
+            font-size: 28px; 
+            margin-top: 20px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            text-align: justify;
+            line-height: 1.6; 
+            margin-bottom: 10px; 
+        }
+
+            /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #292669;
+            color: white;
+            padding: 10px;
+        }
+
+        .logo-container img {
+                cursor: pointer;
+        }
+
+        .justified-text {
+                text-align: justify;
+        }
+
+        .login-button, .register-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-left: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover, .register-button:hover {
+            background-color: #45a049;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+
+            /* Footer */
+        .container {
+            padding-bottom: 10px; /* Increased bottom padding to make space for the footer */
+        }
+
+        .body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            text-align: justify;
+            background-image: url('{ background_url }');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-bottom: 100px; /* Use the actual height of your footer */
+        }
+
+            /* Footer */
+        .footer {
+            background-color: #292669; 
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+             font-size: 16px;
+        }
+
+        .footer, .footer a, .footer a:hover {
+            color: white !important;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        .social-icon {
+            color: #FFF;
+            margin: 0 10px;
+        }
+
+        .social-icon i {
+            transition: color 0.3s ease;
+        }
+
+        .social-icon .twitter-icon {
+            font-size: irem;
+        }   
+            
+        </style>
+    </head>
+
+    <body>
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <a href="{{url_for('home')}}" class="logo-container">
+                    <img src="{{logo_url}}" alt="ScanmyLog Logo">
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="{{url_for('login')}}" class="login-button">Login</a>
+                <a href="{{url_for('register')}}" class="register-button">Register</a>
+            </div>
+        </div>
+
+<!-- Terms and Conditions Content -->
+
+<div class="container">
+    <div style="background-color: white; padding: 20px; margin-bottom: 100px;"> <!-- Added margin-bottom for spacing -->
+        <h1>Terms and Conditions for ScanmyLog</h1>
+
+        <p class="justified-text"> Important – read this carefully before installing, using or electronically accessing 
+        this product.  </p>
+
+        <p class="justified-text">Welcome to ScanmyLog! These terms and conditions ("Terms") govern your use of 
+        ScanmyLog's services, including but not limited to our website, software, and any related services 
+        (collectively referred to as the "Service"). By accessing or using the Service, you agree to be bound by these 
+        Terms. If you do not agree with any part of these Terms, you must not use the Service. </p>
+
+        <p class="justified-text">This ScanmyLog End User License Agreement, which incorporates the applicable any 
+        Statements of Work and Orders agreed by the parties (collectively the “Agreement”), is a legal agreement between
+        ScanmyLog, Inc (on behalf of itself and its Affiliates, “ScanmyLog”) and the business entity that you, as the 
+        person accepting or signing this Agreement (“You”) are acting on behalf of (“Customer”) as the purchaser of the 
+        ScanmyLog, services and/or the end user of the ScanmyLog software accompanying this Agreement. </p>
+
+        <p class="justified-text">You will be required to indicate your agreement this Agreement in order to use the 
+        ScanmyLog software. By installing, downloading, configuring, accessing, or otherwise using the ScanmyLog 
+        software, including any updates, upgrades, or newer versions, you acknowledge that You have read and understand
+        this Agreement, and that Customer agrees to be bound by all of the terms of this Agreement. </p>
+
+        <p class="justified-text">This Agreement is included with the ScanmyLog products and will govern Customer’s 
+        purchase and use of all ScanmyLog products and services.  If Customer elects to sign this Agreement, the signed 
+        version will supersede the click-through version of this Agreement that is included with ScanmyLog. </p>
+
+<h2>1. DEFINITIONS</h2>
+
+        <p class="justified-text"><strong>1.1 Analytical Data:</strong> means anonymized data (including data created 
+        from Customer Data), aggregate statistics, bug reports, any threat or potential threat detections and/or system 
+        behavioral information (including without limitation correlative and/or contextual data) that is provided to 
+        ScanmyLog from Customer or that maybe generated by the Software licensed by Customer. </p>
+
+        <p class="justified-text"><strong>1.2 Appliance:</strong> means a comprised of Hardware and Software. </p>
+
+        <p class="justified-text"><strong>1.3 Documentation:</strong> means the user manuals provided to Customer with 
+        the Software Hardware or ScanmyLog Services upon delivery or activation, in either electronic, online help files
+        or hard copy format. All Documentation is provided in English. </p>
+
+        <p class="justified-text"><strong>1.4 Effective Date:</strong> means the date the Order was signed by ScanmyLog
+        or, if there is no signed  Order, the date the Order was accepted by ScanmyLog. </p>
+
+        <p class="justified-text"><strong>1.5 Error:</strong> means a reproducible defect in a Product, which causes the
+        Product not to operate substantially in accordance with the Documentation. </p>
+
+        <p class="justified-text"><strong>1.6 Hardware:</strong> means the hardware supplied by ScanmyLog as set forth 
+        on an Order. </p>
+
+        <p class="justified-text"><strong>1.7 Intellectual Property Rights:</strong> means all intellectual and 
+        industrial property rights throughout the world, including but not limited to copyright and related rights, 
+        trademarks, service marks, rights to preserve the confidentiality of information (including know-how and trade 
+        secrets), trade names, domain names, rights in get-up, goodwill and right to sue for passing off or unfair 
+        competition, rights in designs, rights in computer software, database rights, patents, patent applications, 
+        moral rights, contract rights and other intellectual proprietary rights, including all applications for 
+        (and right to apply for and be granted) renewals or extensions of, and right to claim priority from, such rights
+        and all similar or equivalent rights or forms of protection which subsist or will subsist, now or in the 
+        future, or in any part of the world. </p>
+
+        <p class="justified-text"><strong>1.8 Order:</strong> means ordering documentation between Customer and 
+        ScanmyLog or an Authorized Reseller and may include a signed quotation from ScanmyLog or a Customer purchase 
+        order accepted by ScanmyLog. </p>
+
+        <p class="justified-text"><strong>1.9 Perpetual:</strong> means the license right to Software indefinitely. </p>
+
+        <p class="justified-text"><strong>1.10 Product(s):</strong> means the Software, Appliance and/or Hardware. </p>
+
+        <p class="justified-text"><strong>1.11 Protected System:</strong> means the network attached device generating 
+        network traffic.</p>
+
+        <p class="justified-text"><strong>1.12 Software:</strong> means the ScanmyLog software programs identified in an
+        Order, including Third Party Software, and any Upgrade, Update or Maintenance Release that ScanmyLog may provide
+        to Customer pursuant to the Support Services.</p>
+
+        <p class="justified-text"><strong>1.13 Subscription:</strong> means a term license right to use the Software for
+        the duration which specified in the applicable Order.</p>
+
+        <p class="justified-text"><strong>1.14 Support Services:</strong> means ScanmyLog’s technical support and 
+        maintenance services.</p>
+
+        <p class="justified-text"><strong>1.15 Support Services Fees:</strong> has the meaning given in Section </p>
+
+        <p class="justified-text"><strong>1.16 User:</strong> means individuals or a unique entry in Customer’s 
+        directory of record for Customers employees, which includes but is not limited to employees, contractors or 
+        agents of Customer actively utilizing Customer’s IT infrastructure and any end customers monitored by Customer. 
+        End customers can include unique active directory entries of Customer’s customers for example, a payment, 
+        billing, or authentication system used by the Customer to conduct business with the end customers.</p>
+
+        <h2>2.	SOFTWARE LICENSE GRANT AND OTHER RIGHTS</h2>
+        <p class="justified-text"><strong>2.1	Software License Grant:</strong>  Subject to the terms and conditions of
+        this Agreement and payment by Customer of all license fees due for the Software, ScanmyLog grants to Customer 
+        during the Term, a non-exclusive, non-transferable, license to use the Software solely for Customer’s internal 
+        business purposes in accordance with the Documentation and any limitations set forth in this Agreement or the 
+        Order. The Duration of the license is as specified on the Order. If Customer elects to deploy the Software for 
+        use in another host environment or another virtual environment (including any copy of the Software for backup 
+        and disaster recovery purposes), each instance requires its own license for which Customer will need a license 
+        key which shall be provided by ScanmyLog upon request of Customer. The Software shall be deemed delivered when a
+        license key which unlocks the Software is provided by ScanmyLog to Customer. </p>
+
+        <p class="justified-text"><strong>2.2	System Files:</strong> All Mongodb Server database files and transaction
+        logs (collectively “System Files”), used by an Appliance must reside on either the Appliance or an external 
+        storage device. Notwithstanding the oregoing, System Files do not include ScanmyLog archive files. </p>
+
+        <p class="justified-text"><strong>2.3	Restrictions on Use:</strong> Except as expressly permitted by this 
+        Agreement, Customer will not:(a) modify, adapt, alter, translate, or create derivative works from the Software, 
+        ScanmyLog or Documentation; (b) rent, lease, loan, sublicense, distribute, sell or otherwise transfer the 
+        Software, ScanmyLog or Documentation to any third party; (c) use the Software or ScanmyLog Services in any 
+        service bureau or time sharing or hosting arrangement; (d) reverse engineer, decompile, disassemble, or 
+        otherwise attempt to derive the source code for the Software or ScanmyLog Services (except, as provided by 
+        statute which cannot be exclude d by this Agreement of the parties, for the purpose of integration with other 
+        software used by Customer, provided that Customer first gives ScanmyLog the opportunity to provide the 
+        information needed to achieve the integration or to carry out such work for a reasonable commercial fee); (e) 
+        otherwise use or copy the Software, ScanmyLog Services or Documentation except as expressly permitted this 
+        Agreement; or (f) disclose to any third party the results of any benchmark tests or other evaluation of the 
+        Software or ScanmyLog Services. If Customer will utilize the ScanmyLog Services for any purpose other than the 
+        detection, mitigation, containment, and eradication of cyber threats, Customer is responsible for providing 
+        notice to, and obtaining consents from, individuals as required by applicable law. </p>
+
+<h2>3. EVALUATION PRODUCTS</h2>
+        <p class="justified-text">Notwithstanding anything to the contrary contained in Section 2 of this Agreement, 
+        Customer is provided with evaluation Products or ScanmyLog Services ("Evaluation Products'), then the term will 
+        be limited to the free trial period specified in the Order Document as otherwise determined by ScanmyLog 
+        (the "Evaluation Period").  During the Evaluation Period, ScanmyLog grants to Customer a limited, non-exclusive,
+        non-transferable, non-sub licensable license to install and use the Software only or access and use the 
+        evaluation ScanmyLog Services: (a) for internal use in a non production capacity; and (c) to test and evaluate 
+        the Software or ScanmyLog Services to assist Customer in its decision.  Any evaluation Hardware (if applicable) 
+        provided to Customer with the evaluation Software shall remain the property of ScanmyLog.  Upon the expiration 
+        of the Evaluation Period, the Evaluation License or right of use granted to Customer will terminate and, within 
+        five (5) days after such expiration or termination, Customer will, at its own expense, uninstall all copies of 
+        the evaluation Software, and return the evaluation Hardware (if applicable), to ScanmyLog. The evaluation of the
+        Products is provided “AS IS” and no warranty obligations of ScanmyLog will apply and Support Services 
+        obligations do not apply to any evaluation. </p>
+
+<h2>4. SUPPORT SERVICES; DEPLOYMENT; TRAINING</h2>
+        <p class="justified-text"><strong>4.1	Support Services:</strong> Support Services shall be subject to terms and 
+        conditions set forth in the Support Services Addendum located on the ScanmyLog website at ScanmyLog Support 
+        Services Addendum and incorporated herein or attached to this Agreement. The initial Support Services term for 
+        Perpetual Software licenses and/or Hardware or an Appliance is one (1) year beginning on the Effective Date 
+        unless otherwise specified in the Order (“Initial Term”). Thereafter Support Services for Perpetual licenses 
+        and/or Hardware or an Appliance shall renew automatically for additional one (1) year terms unless Customer 
+        elects to terminate Support Services by providing ScanmyLog written notice of its intent not to renew Support 
+        Services at least sixty (60) days prior to the end of the applicable annual Support Services term.  Support 
+        Services for Subscriptions are included in the Subscription Fee and Support Services are provided during the 
+        Subscription Term.  Upon termination of such Support Services for a Perpetual license, Appliances and/or 
+        Hardware, Customer may continue to use the Software in accordance with this Agreement without the benefits 
+        provided under the Support Services Addendum.  Support Services Fees for the Initial Term are set forth in the 
+        applicable Order and are invoiced on the Effective Date. Under no circumstances are the Support Services 
+        transferable or assignable by the Customer to any third party.  The Support Services term for Subscription 
+        Licenses is concurrent with the Subscription License term. ScanmyLog may increase Support Services Fees for 
+        Perpetual licenses, Hardware and/or an Appliance for a Support Services renewal term up to twelve percent over 
+        the prior year’s Support Services Fees. </p>
+
+        <p class="justified-text"><strong>4.2	Professional Services:</strong> Subject to payment of the professional 
+        service fees set forth in an Order, ScanmyLog shall provide to Customer the professional services specified in 
+        the Order and in accordance the Professional Services Addendum located on the ScanmyLog website at ScanmyLog 
+        Professional Services Addendum and incorporated herein or attached to this Agreement (“Professional Services”). 
+        Unless otherwise specified in an Order, Customer must use any contracted Professional Services within one year 
+        of the Effective Date of the Order for such Professional Services.  Unless otherwise expressly stated in an 
+        Order, Customer shall pay all of ScanmyLog’s reasonable travel, meals and lodging costs and expenses incurred by
+        ScanmyLog in connection with the provision of all services by ScanmyLog at Customer’s facilities under this 
+        Agreement. Upon Customer’s request, ScanmyLog shall submit written evidence of each such expenditure to Customer
+        prior to receiving reimbursement of such costs and expenses. </p>
+
+<h2>5. FEES, AUDIT AND RECORD KEEPING</h2>
+        <p class="justified-text"><strong>5.1	Payment:</strong> Customer will pay to ScanmyLog or its Authorized 
+        Reseller the applicable fees (“Fees”) as set forth in and in accordance with the applicable Order. Customers 
+        right to use the Software and received the Support Services are contingent upon the payment of all Fees as and 
+        when due to the Authorized Reseller under the applicable Order. </p> 
+
+        <p class="justified-text"><strong>5.2	Authorized Reseller:</strong> Fees payable to Authorized Reseller shall 
+        be paid as set forth in the applicable Order. Customer shall pay all Fees due to ScanmyLog within thirty (30) 
+        days from the date of the invoice unless otherwise specified in writing by ScanmyLog. Customer shall be 
+        responsible for all applicable sales, VAT, use, and other taxes (excluding taxes based on ScanmyLog’s income) 
+        and all applicable export and import fees, customs duties and similar charges.  All Fees are non-refundable 
+        unless otherwise expressly stated herein. If Customer purchases product or services through an Authorized 
+        Reseller, price and payment terms are between Customer and the Authorized Reseller. </p>
+
+        <p class="justified-text"><strong>5.3	Reports; Audit Rights: </strong> If Customer’s Product is licensed by: 
+        (a) messages per second (“MPS”) as specified in the Order, the MPS use limitation of the license refers to a 
+        rolling 24-hour average of messages per second received by the Software whereby “message” means each individual 
+        log or system event received bythe Product including without limitation flat file, SNMP, SMTP, netflow 
+        (j flow and S flow), syslog or other event or system record. Customer will not be charged for a one-time 
+        anomalous event that Customer corrects within twenty-four hours that causes a spike in MPS usage above the 
+        specified MPS limitation, but If at any time a report generated by the Customer reveals that Customer has 
+        exceeded the License Metric quantity granted to Customer, ScanmyLog will invoice Customer for such overage. 
+        Customer shall promptly pay to ScanmyLog or its Authorized Resellers any amounts due as provided in 
+        Section 8.1; (b) network bandwidth 
+        (specified in the Order as a bandwidth or bandwidth per second such as 1GB or 1GB/second), the network bandwidth
+        use limitation refers to a rolling 15-minute average of network bandwidth usage per second; (c) “Identity”, an 
+        Identity is a unique person or service account. A person based Identity may have multiple identifiers such as 
+        user accounts, email addresses, and phone numbers. A service account is a user account that is created 
+        explicitly to provide an authentication context for a computer or set of computers and/or services running on 
+        that computer. An Identity license is required for each unique person-based Identity and each unique service 
+        account; (d) User, as defined above, is based on Customer’s identity directory of record for its User count at 
+        the inception of the Order; or (e) A Protected System, as defined above, includes a network attached device 
+        generating network traffic. Examples include but are not limited to servers, workstations, infrastructure 
+        devices, virtual systems and other equipment that protects and monitors network traffic using analytics and 
+        optional response to identify and remediate threats. </p>
+
+<h2>6. WARRANTY; DISCLAIMER:</h2>
+        <p class="justified-text"><strong>6.1	Product Warranty:</strong> For a period of ninety (90) days after the 
+        Effective Date (“Warranty Period”), ScanmyLog warrants that the Product, when used in accordance with the 
+        instructions in the applicable Documentation, will operate as described in the Documentation in all material 
+        respects.  ScanmyLog does not warrant that Customer’s use of the Product will be error-free or uninterrupted.  
+        ScanmyLog will, at its own expense and as its sole obligation and Customer’s exclusive remedy for any breach of 
+        this warranty, correct any reproducible Error in the Product or replace any defective Product provided that such
+        Error is reported to ScanmyLog by Customer in writing during the Warranty Period and that Customer provides all 
+        information that may be necessary to assist ScanmyLog in resolving the error or defect, or sufficient 
+        information to enable ScanmyLog to recreate the Error or defect.  If ScanmyLog determines that it is unable to 
+        correct the Error or replace the Product, Customer may terminate this Agreement and ScanmyLog or the Authorized
+        Reseller will refund to Customer Product and Support Services Fees actually paid for the defective Product, in 
+        which case this Agreement and Customer’s right to use the Product will terminate.  </p>
+
+        <p class="justified-text"><strong>6.2 Disclaimers:</strong> The express warranties in section 9.1 are in lieu of
+        all other warranties, conditions and terms which might have effect between the parties or be implied or 
+        incorporated into this Agreement or any collateral contract, express, implied, statutory or otherwise, 
+        regarding the Products, and ScanmyLog Services and Professional Services and any other ancillary services or 
+        activities in relation to this Agreement, including (but without limitation) any implied warranties, conditions
+        or other terms as to satisfactory quality, fitness for a purpose or particular purpose, use of reasonable skill 
+        and care, noninfringement and any warranties or conditions arising from course of dealing or course of 
+        performance which are hereby disclaimed to the fullest extent permitted by law. </p>
+
+<h2>7. INFRINGEMENT CLAIMS:</h2>
+        <p class="justified-text"><strong>7.1 Indemnity:</strong> ScanmyLog will defend Customer at ScanmyLog’s expense
+        against any claim, demand, suit, or proceeding  brought against Customer by a third party alleging that the 
+        Software when used in accordance with the terms of this Agreement infringes or misappropriates such third 
+        party’s Intellectual Property Rights (each, a “Claim”), and ScanmyLog indemnify Customer from any damages, 
+        reasonable attorney’s fees and costs finally awarded against Customer as a result of, or for amounts paid by 
+        Customer under in a settlement approved by ScanmyLog in writing of an action provided that Customer: (a) 
+        notifies ScanmyLog promptly in writing of the Claim; (b) does not make any admission of liability, agreement or 
+        compromise in relation to any infringement claim without the prior written consent of ScanmyLog 
+        (such consent not to be unreasonably conditioned, delayed or withheld); (c) gives ScanmyLog sole control of the 
+        defence thereof and any related settlement negotiations; (d) reasonably cooperates and, at ScanmyLog’s request 
+        and expense, assist in such defence; and (e) wherever and whenever possible takes all reasonable steps to 
+        mitigate its losses that are the subject of the Claim. </p>
+
+        <p class="justified-text"><strong>7.2	Injunction:</strong> If the a Product or Cloud Service becomes, or in 
+        ScanmyLog’s opinion is likely to become, the subject of an infringement claim,ScanmyLog may, at ScanmyLog’s
+        discretion and at no cost to Customer: (a) procure for Customer the right to continue using the Products: (b) 
+        replace or modify the Products so that it becomes non-infringing and remains functionally equivalent; or (c) if,
+        in ScanmyLog’s reasonable opinion, neither option (a) or (b) is commercially viable, notify Customer in writing
+        that it requires return of the Software and this Agreement will terminate on the date specified in the notice of
+        termination issued by ScanmyLog to Customer. If this Agreement is terminated under this Section 10.2(a) for 
+        Products, ScanmyLog will refund Customer the Software Fees paid for such Software upon return of the Software, 
+        computed according to a thirty-six (36) month straight-line amortization schedule beginning on the Effective 
+        Date and (b) for ScanmyLog Services, Customer shall be entitled to a refund pursuant to Section 15.3; and 
+        Customer will be entitled to terminate any Support Services related to such Software and if Customer elects to 
+        do so, those Support Services will terminate on the date specified in the notice of termination issued by 
+        Customer to ScanmyLog and will refund to Customer the unexpired portion of the Support Services Fees. </p>   
+
+        <p class="justified-text"><strong>7.3	Exclusions:</strong> Notwithstanding the foregoing, ScanmyLog will have
+        no obligation under this Section 10.3 or otherwise with respect to any Claim based upon: (a) any use of the 
+        Product or Cloud Service not in accordance with this Agreement; (b) any use of the Product or Cloud Service or 
+        use thereof would not infringe without such combination; (c)  use of any release of the Software other than the 
+        most current release made available to Customer, provided that ScanmyLog notified Customer that any Update to 
+        the Software could avoid infringement and ScanmyLog will provide indemnity for use up to the date of such 
+        notification; or (d) any modification of the Software or Cloud Service by any person other than ScanmyLog or its
+        authorized agents or subcontractors. This section 7 constitutes Customer's exclusive remedy and ScanmyLog's only
+        liability in respect of Claims. </p>
+
+<h2>8. LIMITATION OF LIABILITY:</h2>
+
+        <p class="justified-text">Subject to section 9 and section 10, in no event will either party be liable for the 
+        following loss or damage arising from or relating to this Agreement, howsoever caused, whether direct or 
+        indirect and even if such party has been advised of the possibility of such damages: (a) for any loss or 
+        corruption of data; (b) loss of profit; (c) loss of revenue; (d) loss of business opportunity; (e) loss of 
+        anticipated savings or damage to goodwill; or (f) any consequential, indirect, exemplary, special, or incidental
+        damages.  This section 11 shall not prevent claims for loss of or damage to Customer's tangible property that 
+        falls within the terms of section 11 or any other claims for direct financial loss that are not excluded by this
+        section 11 or in the ScanmyLog's case, claims for loss or damage resulting from Customer's breach of any of 
+        ScanmyLog's Intellectual Property Rights, for which the Customers liability shall be unlimited. </p>
+
+<h2>9. TOTAL LIABILITY:</h2>
+
+        <p class="justified-text">Subject to section 9 and section 10, ScanmyLog’s total cumulative liability in 
+        connection with this Agreement, the Products, ScanmyLog Services and related services, whether in contract or 
+        tort (including negligence) or otherwise,will not exceed a sum equal to 1.25 times the amount of fees 
+        (including Support Services Fees (if any)) paid or payable by Customer to Authorized Reseller during the 
+        twelve (12) month period preceding the events giving rise to such liability or 
+        five thousand American dollars (USD$5,000), whichever is the higher. </p>
+
+<h2>10. LIABILITY NOT EXCLUDED:</h2>
+
+        <p class="justified-text">Neither party excludes its liability in respect of: death or personal injury caused by
+        the negligence of that party, its servants or agents; or liability for fraud or fraudulent misrepresentation; or
+        breach of statutory warranties of title and quiet possession; or such other liability which cannot be excluded 
+        or limited by law. </p>
+
+<h2>11. CONFIDENTIALITY:</h2>
+
+        <p class="justified-text"><strong>11.1	Confidential Information:</strong> For purposes  information 
+        that is disclosed by a party (“Disclose”) to the other party (“Recipient”), or which Recipient has access to in 
+        connection with this Agreement, and that should reasonably have been understood by Recipient to be proprietary 
+        and confidential to Disclose or to a third party, because of legends or other markings, the circumstances of 
+        disclosure or the nature of the information itself.  Information may be disclosed in written or other tangible 
+        form (including on magnetic media) or by oral, visual or other means.  Information includes, without limitation,
+        information of or relating to the Disclose’s present or future products, know-how, formulas, designs, 
+        processes, ideas, inventions and other technical, business and financial plans, processing information, pricing
+        information, specifications, research and development information, customer lists, the identity of any customers
+        or suppliers, forecasts and any other information relating to any work in process, future development, 
+        marketing plans, strategies, financial matters, personnel matters, investors or business operations of the 
+        Disclose, as well as the terms of this Agreement. </p>    
+
+        <p class="justified-text"><strong>11.2	Protection of Information:</strong> Recipient will not use any 
+        Information of Disclose for any purpose not expressly permitted by this Agreement and will disclose the 
+        Information of Disclose only to the employees or contractors of Recipient who have a need to know such 
+        Information for purposes of this Agreement and who are under a duty of confidentiality no less restrictive than 
+        Recipient’s duty hereunder.  Recipient will protect Disclose’s Information from unauthorized use, access, or 
+        disclosure in the same manner as Recipient protects its own confidential or proprietary information of a similar
+        nature and with no less than reasonable care. </p>
+
+        <p class="justified-text"><strong>11.3	Exceptions:</strong> Recipient’s obligations under Section 14.2 with 
+        respect to any Information of Disclose will terminate if such information: (a) was already known to Recipient at
+        the time of disclosure by Disclose; (b) was disclosed to Recipient by a third party who had the right to make 
+        such disclosure without any confidentiality restrictions; (c) is, or through no fault of Recipient has become, 
+        generally available to the public; or (d) was independently developed by Recipient without access to, or use 
+        of, Disclose’s Information.  In addition, Recipient will be allowed to disclose Information of Disclose to the 
+        extent that such disclosure is: (i) approved in writing by Disclose; (ii) necessary for Recipient to enforce its
+        rights under this Agreement in connection with a legal proceeding; or (iii) required by law or by the order of a
+        court of similar judicial or administrative body, provided that Recipient notifies Disclose of such required 
+        disclosure promptly and in writing and cooperates with Disclose, at Disclose’s request and expense, in any 
+        lawful action to contest or limit the scope of such required disclosure. </p>
+
+        <p class="justified-text"><strong>11.4	Return of Information:</strong> Except as otherwise expressly provided 
+        in this Agreement, Recipient will return to Disclose or destroy all Information of Disclose in Recipient’s 
+        possession or control and permanently erase all electronic copies of such Information.  Recipient will certify 
+        in writing signed by an officer of Recipient that it has fully complied with its obligations. </p>
+
+<h2>12. TERM AND TERMINATION:</h2>
+
+        <p class="justified-text"><strong>12.1	Term:</strong> The “Term” of a Perpetual license continues until 
+        terminated as provided. The “Term” of a Subscription expires at the end of the Subscription period specified in 
+        the applicable Order unless the parties enter into a new Subscription Order or as provided. </p>
+
+        <p class="justified-text"><strong>12.2	Termination:</strong> Either party may terminate this Agreement if the 
+        other party breaches any material provision of this Agreement and (if such breach is remediable) does not cure 
+        such breach within thirty (30) days after receiving written notice thereof. Subscription Term Agreements expire
+        at the end of the Subscription Term. </p>
+
+        <p class="justified-text"><strong>12.3	Refund or Payment upon Termination:</strong> If this Agreement is 
+        terminated by Customer in accordance with Section 15.2 (Termination), ScanmyLog will refund Customer any 
+        prepaid, unused fees for services. If this Agreement is terminated by ScanmyLog in accordance, Customer will pay
+        any unpaid fees covering the remainder of the applicable term of all Orders. In no event will termination 
+        relieve Customer of its obligation to pay any fees payable to ScanmyLog prior to the effective date of 
+        termination. </p>
+
+        <p class="justified-text"><strong>12.4	Effects of Termination:</strong> Upon termination of this Agreement: 
+        (i) all license and use rights granted in this Agreement will immediately cease to exist, and (ii) and Customer 
+        must promptly discontinue all use of  the Software, erase all copies of the Software from Customer’s computers,
+        return to ScanmyLog or destroy all copies of the Software, Documentation and other ScanmyLog Information in 
+        Customer’s possession or control. Together with any accrued payment obligations, will survive expiration or 
+        termination of this Agreement for any reason, together with any accrued payment obligations and any other 
+        sections of this Agreement which expressly or by survive expiry or termination. </p>
+
+<h2>13. GENERAL:</h2>
+
+        <p class="justified-text"><strong>13.1	Proprietary Rights:</strong> The Software, ScanmyLog Services and 
+        Documentation, and all worldwide Intellectual Property Rights therein, are the exclusive property of ScanmyLog 
+        and its licensors.  All rights in and to the Software, ScanmyLog Services and Documentation not expressly 
+        granted to Customer in this Agreement are reserved by ScanmyLog and its licensors.  Customer will not remove, 
+        alter, or obscure any proprietary notices (including copyright notices) of ScanmyLog or its licensors on the 
+        Software, ScanmyLog Services or Documentation. </p>
+
+        <p class="justified-text"><strong>13.2	Feedback:</strong> In connection with the use of the Products or 
+        Services, ScanmyLog knowledge base, community forum(s), Customer may provide suggestions, enhancement requests, 
+        recommendations or other feedback (“Feedback”). Customer hereby grants to ScanmyLog a non-exclusive, 
+        transferable, sub licensable, world-wide, perpetual, royalty-free, irrevocable license to reproduce, create 
+        derivative works from, distribute, perform, display and otherwise use Feedback (including, but not limited to, 
+        incorporating it into the Software). </p>
+
+        <p class="justified-text"><strong>13.3	Compliance with Laws:</strong> Each party shall comply with all laws, 
+        rules, and regulations, applicable to that party in connection with this Agreement, including all applicable 
+        export and import control laws and regulations in its use of the Products and ScanmyLog UEBAServices and, in 
+        particular, neither party shall export or re-export Products without all required government licenses and each 
+        party agrees to comply with the export laws, restrictions, national security controls and regulations of the all
+        applicable foreign agencies or authorities. </p>
+
+        <p class="justified-text"><strong>13.4	Anti-Bribery:</strong> ScanmyLog shall:  (a) comply with all applicable 
+        laws, regulations, codes and sanctions relating to anti-bribery and anti-corruption including but not limited to
+        the Bribery Act 2010 ("Relevant Requirements"); (b) not engage in any activity, practice or conduct which would
+        constitute an offence under sections 1, 2 or 6 of the Bribery Act 2010 if such activity;  (c) have and shall 
+        maintain in place throughout the term of this agreement its own policies and procedures, including but not 
+        limited to adequate procedures under the Bribery Act 2010 or any other applicable legislation, to ensure 
+        compliance with the Relevant Requirements and Section 16.4(b), and will enforce them where appropriate; 
+        (d) promptly report to Customer  any request or demand for any undue financial or other advantage of any kind 
+        received by ScanmyLog in connection with the performance of this Agreement; (e) immediately notify Customer 
+        (in writing) if a foreign public official becomes an officer or employee of the ScanmyLog and/or acquires a 
+        direct or indirect interest in the ScanmyLog (and ScanmyLog warrants that it has no foreign public officials as 
+        officers or employees and/or direct or indirect owners at the date of this Agreement); (f) on written request, 
+        certify to Customer  in writing signed by an officer of ScanmyLog, compliance with this Section 133 by ScanmyLog
+        and all persons associated with it and all other persons for whom the ScanmyLog is responsible under 
+        Section 16.4(c). ScanmyLog shall provide such supporting evidence of compliance as Customer may reasonably 
+        request. ScanmyLog shall ensure that any person associated with ScanmyLog who is performing services or 
+        providing goods in connection with this Agreement does so only on the basis of a written contract which imposes
+        n and secures from such person terms equivalent to those imposed on ScanmyLog in this 
+        Section 16.4 ("Relevant Terms").  ScanmyLog shall in all circumstances be responsible for the observance and 
+        performance by such persons of the Relevant Terms and shall in all circumstances bedirectly liable to the 
+        Company for any breach by such persons of any of the Relevant Terms howsoever. Breach of this 
+        Secction 16.4 shall be deemed an irredeemable material breach.  For the purpose of this Section 16.4, the 
+        meaning of adequate procedures and foreign public official and whether a person is associated with another 
+        person shall be determined in accordance with section 7(2) of the Bribery Act 2010 (and any guidance issued 
+        under section 9 of that Act), sections 6(5) and 6(6) of that Act and section 8 of that Act respectively, or if 
+        applicable, any equivalent provisions of any other applicable legislation in another jurisdiction. For the 
+        purposes of this Section 16.4 a person associated with ScanmyLog includes but is not limited to any
+        subcontractor of ScanmyLog. </p>
+
+        <p class="justified-text"><strong>13.5	Assignment:</strong> Neither party shall have the right to assign, 
+        transfer, by operation of law or otherwise, this Agreement or any of its rights under this Agreement without the
+        other party’s prior written consent, which consent shall not be unreasonably withheld, conditioned or delayed; 
+        except ScanmyLog shall have the right to assign this Agreement, without consent, to any successor to all or 
+        substantially all its business or assets to which this Agreement relates, whether by merger, sale of assets, 
+        sale of stock, reorganization or otherwise. Any attempted assignment,  transfer in violation of the foregoing 
+        will be null and void. If consent to assign the Agreement is approved by ScanmyLog, Customer may be required to 
+        acquire additional MPS or User licenses. This Agreement is binding upon and inures to the benefit of the parties
+        , and to their permitted assigns. </p>
+
+        <p class="justified-text"><strong>13.6	Force Majeure:</strong> The Software, ScanmyLog Services and 
+        Documentation, and all worldwide Intellectual Property Rights therein, are the exclusive property of ScanmyLog 
+        and its licensors.  All rights in and to the Software, ScanmyLog Services and Documentation not expressly 
+        granted to Customer in this Agreement are reserved by ScanmyLog and its licensors.  Customer will not remove, 
+        alter, or obscure any proprietary notices (including copyright notices) of ScanmyLog or its licensors on the 
+        Software, ScanmyLog Services or Documentation. </p>
+
+        <p class="justified-text"><strong>13.7	Notices:</strong> All notices, consents, and approvals under this 
+        Agreement must be delivered in writing by courier, by electronic mail, facsimile (fax), or by certified mail, 
+        (postage prepaid and return receipt requested) to the other party at the address set forth on the Order and will
+        be effective upon receipt or when delivery is refused. Either party may change its address by giving notice in 
+        writing of the new address to the other party. </p>
+
+        <p class="justified-text"><strong>13.8	Governing Law and Jurisdiction:</strong> This Agreement, all Statements 
+        of Work and any dispute or claim arising out of or in connection with the same or its subject matters or 
+        formation (including non contractual disputes or claims) will be governed by and interpreted, without reference 
+        to its choice of laws rules. Any dispute arising out of or in connection with this contract, including any 
+        question regarding its existence, validity or termination, shall be referred to and finally resolved by 
+        arbitration under the LCIA Rules, which Rules are deemed to be incorporated by reference into this clause. The 
+        number of arbitrators shall be one. The language to be used in the arbitrarily proceedings shall be English.</p>
+
+        <p class="justified-text"><strong>13.9	Remedies:</strong> Except as provided in Sections 10 and 11, the parties’
+        rights and remedies under this Agreement are cumulative.  Customer acknowledges that the Software and ScanmyLog 
+        Services contain valuable trade secrets and proprietary information of ScanmyLog, that any actual or threatened 
+        breach of Section 2 by Customer will constitute immediate, irreparable harm to ScanmyLog for which monetary 
+        damages would be an inadequate remedy, and that injunctive relief is an appropriate remedy for such breach.  
+        If any legal action is brought by a party to enforce this Agreement, the prevailing party will be entitled to 
+        receive its reasonable legal fees, court costs, and other collection expenses, in addition to any other relief 
+        it may receive. </p>
+
+        <p class="justified-text"><strong>13.10 Waivers:</strong> All waivers must be in writing.  Any waiver or failure 
+        to enforce any provision of this Agreement on one occasion will not be deemed a waiver of any other provision or
+        of such provision on any other occasion. </p>
+
+        <p class="justified-text"><strong>13.11 Severability:</strong> If any provision of this Agreement is 
+        unenforceable, such provision will be changed and interpreted to accomplish the objectives of such provision to 
+        the greatest extent possible under applicable law or shall, to the extent required, be deemed not to form part 
+        of this Agreement, in either case, the remaining provisions of this Agreement will continue in full force and 
+        effect.  Without limiting the generality of the foregoing. </p>
+
+        <p class="justified-text"><strong>13.12 Construction:</strong>The headings of sections of this Agreement are for
+        convenience and are not to be used in interpreting this Agreement.As in this Agreement, the word “including”
+        means “including but not limited to.”</p>
+
+        <p class="justified-text"><strong>13.13 Entire Agreement:</strong> This Agreement (including the attachments and
+        all Orders and Statements of Work made hereunder) constitutes the entire agreement between ScanmyLog and the 
+        Customer regarding the subject hereof and supersedes all prior or contemporaneous agreements, understandings, 
+        and communication, whether written or oral. Each party acknowledges that, in entering into this Agreement, it
+        has not relied on any statement, representation (whether negligent or innocent), assurance or warranty, whether 
+        written or oral, of any person (whether a party to this Agreement or not) other than as expressly set out in 
+        this Agreement and that it shall have no remedy in respect of such representations.  This section shall not 
+        apply to any statement, representation, assurance or warranty made fraudulently. Each party agrees and 
+        undertakes to the other party that the only rights and remedies available to it arising out of or in connection 
+        with this Agreement or its subject matter shall be for breach of contract. Unless otherwise specified in a 
+        future Order, this Agreement governs all future transactions for ScanmyLog products between the parties. </p>
+
+        <p class="justified-text"><strong>13.14 Amendment:</strong> This Agreement may be amended only by a written 
+        document signed by both parties. The terms of any purchase order or similar document submitted by Customer to 
+        ScanmyLog will have no effect. </p>
+
+<h2>14. Changes to Terms</h2>
+        <p class="justified-text"><p>ScanmyLog reserves the right to modify or revise these Terms at any time. 
+        If we make material changes to these Terms, we will notify you by email or by posting a notice on our website. 
+        Your continued use of the Service following the posting of any changes to these Terms constitutes acceptance 
+        of those changes.</p>
+
+<h2>15. Contact Us</h2>
+        <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at 
+        noreplyscanmylog@gmail.com.</p>
+
+        <p><strong>Last Updated:</strong> February 12, 2024</p>
+
+        <p>You can download a copy of this Terms and Conditions <a href="javascript:window.print()">here</a>.</p>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="footer" style="background-color: #292669; color: white; padding: 20px; position: fixed; bottom: 0; 
+width: 100%; display: flex; align-items: center; justify-content: center;">
+    <div class="footer-section" style="margin-right: 50px;">
+<a href="{{url_for('terms_conditions')}}" class="terms_conditions-link">Terms & Conditions</a> |
+<a href="{{url_for('help')}}" class="help-link">Help</a>
+
+    </div>
+        <div class="footer-section" style="flex-grow: 2; display: flex; justify-content: center; gap: 20px; 
+        margin: 0 10px;">
+        <a href="{{facebook_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f fa-2x"></i>
+        </a>
+        <a href="{{twitter_url}}" target="_blank" class="social-icon">
+            <i class="fa-brands fa-x-twitter" style="font-size: 2rem;"></i>
+        </a>
+        <a href="{{youtube_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-youtube fa-2x"></i>
+        </a>
+        <a href="{{linkedin_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in fa-2x"></i>
+        </a>
+        <a href="{{instagram_url}}" target="_blank" class="social-icon">
+            <i class="fab fa-instagram fa-2x"></i>
+        </a>
+    </div>
+
+<div class="footer-section" style="margin-left: 10px;">
+<a href="{{url_for('privacy_policy')}}" class="privacy_policy-link">Privacy Policy</a> |
+<a href="{{url_for('feedback')}}" class="feedback-link">Feedback</a>
+        </div>
+    </div>
+
+    </script>
+    </body>
+    </html>
